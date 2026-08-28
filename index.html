@@ -2,166 +2,782 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Diamond Connect | Oficial</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diamond Connect | Tecnologia e Smartphones</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
---blue:#0877d1;
---blue2:#0a4d9c;
---dark:#05080d;
---card:#0d131b;
---border:#164d7d;
---text:#fff;
---muted:#aab4c0;
---green:#25d366
+    --primary:#0879e8;
+    --primary-dark:#0454a8;
+    --primary-light:#35a0ff;
+    --dark:#05070a;
+    --dark2:#080c12;
+    --card:#0d1219;
+    --card2:#101720;
+    --border:#17334d;
+    --text:#fff;
+    --muted:#9ba8b7;
+    --green:#25d366;
 }
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
-html{scroll-behavior:smooth}
-body{background:var(--dark);color:var(--text);overflow-x:hidden}
-a{text-decoration:none;color:inherit}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--dark);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* HEADER */
 
 header{
-position:sticky;top:0;z-index:99;
-padding:14px 6%;
-display:flex;justify-content:space-between;align-items:center;
-background:#05080df5;border-bottom:1px solid var(--border);
-backdrop-filter:blur(12px)
+    position:sticky;
+    top:0;
+    z-index:999;
+    width:100%;
+    padding:15px 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:rgba(5,7,10,.96);
+    border-bottom:1px solid rgba(8,121,232,.35);
+    backdrop-filter:blur(15px);
 }
-.logo-area{display:flex;align-items:center;gap:10px}
-.logo{width:52px;height:52px;object-fit:contain;border-radius:50%}
-.logo-area b{font-size:18px}.logo-area span{color:#2996ed}
-nav{display:flex;gap:18px;align-items:center}
-nav a{font-size:11px;color:#dce4ed}
-.navbtn,.primary{background:var(--blue);padding:11px 17px;border-radius:9px;font-weight:700}
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo{
+    width:52px;
+    height:52px;
+    object-fit:contain;
+    border-radius:50%;
+}
+
+.logo-name{
+    font-size:18px;
+    font-weight:800;
+}
+
+.logo-name span{
+    color:var(--primary-light);
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:22px;
+}
+
+nav a{
+    font-size:11px;
+    font-weight:500;
+    color:#dce4ec;
+    transition:.2s;
+}
+
+nav a:hover{
+    color:var(--primary-light);
+}
+
+.nav-button{
+    background:var(--primary);
+    padding:11px 18px;
+    border-radius:9px;
+    font-weight:700;
+}
+
+/* HERO */
 
 .hero{
-padding:70px 7%;min-height:560px;display:grid;
-grid-template-columns:1fr 1fr;gap:45px;align-items:center;
-background:radial-gradient(circle at 80% 40%,#0877d125,transparent 35%)
+    min-height:590px;
+    padding:75px 7%;
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    align-items:center;
+    gap:55px;
+    background:
+        radial-gradient(circle at 75% 45%,rgba(8,121,232,.20),transparent 35%),
+        linear-gradient(180deg,#05070a,#070b11);
 }
+
 .badge{
-display:inline-block;border:1px solid var(--border);border-radius:30px;
-padding:7px 13px;color:#54aaf0;font-size:10px;font-weight:800;margin-bottom:18px
+    display:inline-flex;
+    align-items:center;
+    padding:7px 14px;
+    border:1px solid rgba(8,121,232,.5);
+    border-radius:30px;
+    color:#55adff;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.5px;
+    margin-bottom:20px;
 }
-.hero h1{font-size:clamp(38px,5vw,60px);line-height:1.08;margin-bottom:18px}
-.hero h1 span{color:#2996ed}
-.hero p{color:var(--muted);font-size:13px;line-height:1.8;max-width:600px;margin-bottom:25px}
-.buttons{display:flex;gap:12px;flex-wrap:wrap}
-.secondary{
-border:1px solid #263544;background:#0d131b;
-padding:11px 17px;border-radius:9px;font-size:11px;font-weight:700
-}
-.checks{display:flex;gap:18px;margin-top:23px;flex-wrap:wrap;font-size:10px;color:#dce4ed}
-.hero-img{
-height:390px;border:1px solid var(--border);border-radius:25px;
-display:flex;align-items:center;justify-content:center;
-background:radial-gradient(circle,#0877d140,transparent 60%),#0b1118;
-position:relative
-}
-.hero-img img{width:210px;height:210px;object-fit:contain;border-radius:50%}
-.float{
-position:absolute;background:#091019;border:1px solid var(--border);
-border-radius:10px;padding:10px;font-size:10px;font-weight:700
-}
-.f1{top:20px;left:18px}.f2{bottom:20px;right:18px}
 
-.section{padding:65px 7%}
-.dark{background:#080c12;border-top:1px solid #ffffff08;border-bottom:1px solid #ffffff08}
-.title{text-align:center;margin-bottom:35px}
-.title small{display:block;color:#3197e9;font-size:10px;font-weight:800;letter-spacing:2px;margin-bottom:7px}
-.title h2{font-size:clamp(27px,4vw,40px)}
-.title p{font-size:11px;color:var(--muted);margin-top:7px}
-
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.box{
-background:linear-gradient(145deg,#101923,#0b1016);
-border:1px solid var(--border);border-radius:17px;padding:27px;text-align:center
+.hero h1{
+    font-size:clamp(40px,5vw,66px);
+    line-height:1.04;
+    letter-spacing:-2px;
+    margin-bottom:20px;
 }
-.icon{font-size:27px;margin-bottom:10px}
-.box h3{font-size:15px;margin-bottom:7px}
-.box p{font-size:11px;color:var(--muted);line-height:1.7}
 
-.tablewrap{overflow-x:auto;border:1px solid var(--border);border-radius:17px;background:var(--card)}
-table{width:100%;min-width:580px;border-collapse:collapse}
-th{background:var(--blue2);padding:15px;text-align:left;font-size:11px}
-td{padding:12px 15px;font-size:11px;border-bottom:1px solid #ffffff0b;color:#dce4ed}
-
-.products{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.product{
-background:linear-gradient(145deg,#111a24,#0b1016);
-border:1px solid var(--border);border-radius:16px;padding:20px;
-display:flex;flex-direction:column;min-height:210px
+.hero h1 span{
+    color:var(--primary-light);
 }
-.product small{color:#3599e9;font-size:9px;font-weight:800;text-transform:uppercase}
-.product h3{font-size:14px;margin:7px 0}
-.entry{font-size:10px;color:var(--muted)}
-.install{font-size:21px;margin:5px 0 15px}
-.buy{margin-top:auto;background:var(--green);padding:10px;border-radius:8px;text-align:center;font-size:10px;font-weight:800}
 
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.hero p{
+    max-width:590px;
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.8;
+    margin-bottom:28px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.primary-button{
+    background:var(--primary);
+    padding:13px 20px;
+    border-radius:9px;
+    font-size:11px;
+    font-weight:800;
+    transition:.2s;
+}
+
+.primary-button:hover{
+    background:var(--primary-light);
+    transform:translateY(-2px);
+}
+
+.secondary-button{
+    background:#0c1118;
+    border:1px solid #27384a;
+    padding:13px 20px;
+    border-radius:9px;
+    font-size:11px;
+    font-weight:700;
+}
+
+.hero-checks{
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+    margin-top:25px;
+    color:#dce4ec;
+    font-size:10px;
+}
+
+.hero-checks span::first-letter{
+    color:var(--primary-light);
+}
+
+.hero-visual{
+    min-height:410px;
+    position:relative;
+    border:1px solid rgba(8,121,232,.35);
+    border-radius:28px;
+    background:
+        radial-gradient(circle at center,rgba(8,121,232,.24),transparent 55%),
+        #091019;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.hero-visual::before{
+    content:"";
+    position:absolute;
+    width:270px;
+    height:270px;
+    border-radius:50%;
+    border:1px solid rgba(53,160,255,.18);
+    box-shadow:0 0 80px rgba(8,121,232,.18);
+}
+
+.hero-logo{
+    width:210px;
+    height:210px;
+    object-fit:contain;
+    border-radius:50%;
+    z-index:2;
+}
+
+.floating-card{
+    position:absolute;
+    z-index:3;
+    padding:12px 15px;
+    background:rgba(9,15,22,.94);
+    border:1px solid rgba(8,121,232,.45);
+    border-radius:10px;
+    font-size:10px;
+    font-weight:700;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+.float-one{
+    top:25px;
+    left:20px;
+}
+
+.float-two{
+    right:20px;
+    bottom:25px;
+}
+
+/* SECTION */
+
+.section{
+    padding:75px 7%;
+}
+
+.section-dark{
+    background:#080c12;
+    border-top:1px solid rgba(255,255,255,.04);
+    border-bottom:1px solid rgba(255,255,255,.04);
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-title small{
+    display:block;
+    color:#35a0ff;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:2px;
+    margin-bottom:8px;
+    text-transform:uppercase;
+}
+
+.section-title h2{
+    font-size:clamp(28px,4vw,42px);
+    line-height:1.1;
+}
+
+.section-title p{
+    max-width:650px;
+    margin:10px auto 0;
+    color:var(--muted);
+    font-size:11px;
+}
+
+/* DIFFERENTIALS */
+
+.grid-three{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.info-card{
+    padding:28px;
+    text-align:center;
+    background:linear-gradient(145deg,#101923,#0a0f15);
+    border:1px solid var(--border);
+    border-radius:18px;
+    transition:.25s;
+}
+
+.info-card:hover{
+    transform:translateY(-5px);
+    border-color:var(--primary);
+}
+
+.info-icon{
+    font-size:29px;
+    margin-bottom:12px;
+}
+
+.info-card h3{
+    font-size:15px;
+    margin-bottom:8px;
+}
+
+.info-card p{
+    color:var(--muted);
+    font-size:10px;
+    line-height:1.75;
+}
+
+/* TABLE */
+
+.table-container{
+    max-width:1150px;
+    margin:auto;
+    overflow-x:auto;
+    border:1px solid var(--border);
+    border-radius:18px;
+    background:var(--card);
+}
+
+.price-table{
+    width:100%;
+    min-width:600px;
+    border-collapse:collapse;
+}
+
+.price-table th{
+    padding:17px 20px;
+    background:var(--primary-dark);
+    text-align:left;
+    font-size:11px;
+    text-transform:uppercase;
+}
+
+.price-table td{
+    padding:14px 20px;
+    border-bottom:1px solid rgba(255,255,255,.06);
+    color:#dbe3eb;
+    font-size:11px;
+}
+
+.price-table tr:last-child td{
+    border-bottom:0;
+}
+
+.price-table tr:hover td{
+    background:rgba(8,121,232,.05);
+}
+
+/* DELIVERY */
+
+.delivery-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.delivery-card{
+    padding:28px;
+    background:linear-gradient(145deg,#111923,#090e14);
+    border:1px solid var(--border);
+    border-radius:18px;
+    text-align:center;
+}
+
+.delivery-card .icon{
+    font-size:27px;
+    margin-bottom:10px;
+}
+
+.delivery-card h3{
+    font-size:14px;
+    margin-bottom:8px;
+}
+
+.delivery-card p{
+    color:var(--muted);
+    font-size:10px;
+    line-height:1.7;
+}
+
+/* CATALOG */
+
+.products{
+    max-width:1300px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+
+.product-card{
+    display:flex;
+    flex-direction:column;
+    min-height:220px;
+    padding:21px;
+    background:linear-gradient(145deg,#111923,#090e14);
+    border:1px solid var(--border);
+    border-radius:17px;
+    transition:.25s;
+}
+
+.product-card:hover{
+    transform:translateY(-4px);
+    border-color:var(--primary);
+}
+
+.product-type{
+    color:#3da4ff;
+    font-size:9px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.product-card h3{
+    font-size:14px;
+    margin:8px 0;
+}
+
+.entry{
+    color:var(--muted);
+    font-size:10px;
+}
+
+.installment{
+    font-size:22px;
+    font-weight:800;
+    margin:5px 0 17px;
+}
+
+.buy-button{
+    margin-top:auto;
+    display:block;
+    text-align:center;
+    padding:11px;
+    background:var(--green);
+    border-radius:8px;
+    font-size:10px;
+    font-weight:800;
+}
+
+/* SIX FEATURES */
+
+.features-six{
+    max-width:1250px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
 .feature{
-background:var(--card);border:1px solid var(--border);
-border-radius:16px;padding:22px
+    padding:24px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
 }
-.feature h3{font-size:14px;margin:8px 0}
-.feature p{font-size:10px;color:var(--muted);line-height:1.7}
 
-.about{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
-.about h2{font-size:38px;margin-bottom:15px}
-.about h2 span{color:#2996ed}
-.about p{font-size:11px;color:var(--muted);line-height:1.8;margin-bottom:12px}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.stat{background:var(--card);border:1px solid var(--border);border-radius:15px;padding:23px;text-align:center}
-.stat strong{display:block;font-size:27px;color:#3299e9}.stat span{font-size:9px;color:var(--muted)}
-
-.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.review{background:var(--card);border:1px solid var(--border);border-radius:15px;padding:20px}
-.stars{color:#ffd43b;margin-bottom:9px}.review p{font-size:10px;line-height:1.7;margin-bottom:10px;color:#dce4ed}
-.review b{font-size:10px;color:#3599e9}
-
-.security{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-.security div{
-background:#0b1016;border:1px solid var(--border);border-radius:13px;
-padding:20px;text-align:center
+.feature-icon{
+    font-size:24px;
+    margin-bottom:8px;
 }
-.security strong{display:block;font-size:10px;margin:6px}.security span{font-size:9px;color:var(--muted)}
 
-.cta{text-align:center;padding:70px 20px}
-.ctabox{
-max-width:800px;margin:auto;padding:45px 20px;border:1px solid var(--border);
-border-radius:23px;background:radial-gradient(circle,#0877d140,transparent 65%),#0c1219
+.feature h3{
+    font-size:14px;
+    margin-bottom:7px;
 }
-.ctabox h2{font-size:clamp(27px,4vw,40px);margin-bottom:9px}
-.ctabox p{font-size:11px;color:var(--muted);margin-bottom:22px}
+
+.feature p{
+    color:var(--muted);
+    font-size:10px;
+    line-height:1.7;
+}
+
+/* ABOUT */
+
+.about{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.about-text h2{
+    font-size:clamp(30px,4vw,43px);
+    line-height:1.1;
+    margin-bottom:17px;
+}
+
+.about-text h2 span{
+    color:var(--primary-light);
+}
+
+.about-text p{
+    color:var(--muted);
+    font-size:11px;
+    line-height:1.85;
+    margin-bottom:12px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.stat{
+    padding:27px 15px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    color:var(--primary-light);
+    font-size:29px;
+    font-weight:800;
+}
+
+.stat span{
+    color:var(--muted);
+    font-size:9px;
+}
+
+/* REVIEWS */
+
+.reviews{
+    max-width:1250px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:17px;
+}
+
+.review{
+    padding:22px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+}
+
+.stars{
+    color:#ffd43b;
+    font-size:15px;
+    margin-bottom:9px;
+}
+
+.review p{
+    color:#dbe3eb;
+    font-size:10px;
+    line-height:1.75;
+    margin-bottom:12px;
+}
+
+.review b{
+    color:#3da4ff;
+    font-size:10px;
+}
+
+/* SECURITY */
+
+.security-grid{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:17px;
+}
+
+.security-card{
+    padding:24px;
+    text-align:center;
+    background:#0b1118;
+    border:1px solid var(--border);
+    border-radius:15px;
+}
+
+.security-card .icon{
+    font-size:25px;
+}
+
+.security-card strong{
+    display:block;
+    margin:7px 0;
+    font-size:11px;
+}
+
+.security-card span{
+    color:var(--muted);
+    font-size:9px;
+}
+
+/* CTA */
+
+.cta{
+    padding:80px 20px;
+    text-align:center;
+}
+
+.cta-box{
+    max-width:850px;
+    margin:auto;
+    padding:50px 25px;
+    border-radius:25px;
+    border:1px solid rgba(8,121,232,.45);
+    background:
+        radial-gradient(circle at center,rgba(8,121,232,.20),transparent 65%),
+        #0b1118;
+}
+
+.cta-box h2{
+    font-size:clamp(28px,4vw,42px);
+    margin-bottom:10px;
+}
+
+.cta-box p{
+    color:var(--muted);
+    font-size:11px;
+    margin-bottom:24px;
+}
+
+/* WHATSAPP */
 
 .whatsapp{
-position:fixed;right:20px;bottom:20px;width:58px;height:58px;
-border-radius:50%;background:var(--green);display:flex;
-align-items:center;justify-content:center;font-size:25px;z-index:100
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:var(--green);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:26px;
+    z-index:1000;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
-footer{text-align:center;padding:30px;border-top:1px solid #ffffff08;background:#030507}
-footer b{font-size:11px}footer p{font-size:9px;color:#65717e;margin-top:6px}
 
-@media(max-width:900px){
-nav{gap:9px}.products{grid-template-columns:repeat(3,1fr)}
-.hero{grid-template-columns:1fr;text-align:center}
-.hero p{margin-left:auto;margin-right:auto}
-.buttons,.checks{justify-content:center}
+/* FOOTER */
+
+footer{
+    padding:32px 20px;
+    text-align:center;
+    background:#030507;
+    border-top:1px solid rgba(255,255,255,.05);
 }
-@media(max-width:650px){
-header{flex-direction:column;gap:10px}
-nav{justify-content:center;flex-wrap:wrap}
-.section{padding:50px 5%}
-.grid3,.features,.reviews,.security,.products{grid-template-columns:1fr 1fr}
-.about{grid-template-columns:1fr}
-.hero{padding:50px 5%}
-.hero-img{height:300px}
+
+footer strong{
+    font-size:11px;
 }
-@media(max-width:450px){
-.grid3,.features,.reviews,.security,.products{grid-template-columns:1fr}
-.hero h1{font-size:38px}
+
+footer p{
+    color:#65717e;
+    font-size:9px;
+    margin-top:6px;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:1000px){
+    .products{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+    }
+
+    .hero-content{
+        text-align:center;
+    }
+
+    .hero p{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .hero-buttons,
+    .hero-checks{
+        justify-content:center;
+    }
+}
+
+@media(max-width:800px){
+    header{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:12px;
+    }
+
+    .grid-three,
+    .delivery-grid,
+    .features-six,
+    .reviews,
+    .security-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:600px){
+    .section{
+        padding:55px 5%;
+    }
+
+    .hero{
+        padding:55px 5%;
+    }
+
+    .hero-visual{
+        min-height:310px;
+    }
+
+    .hero-logo{
+        width:160px;
+        height:160px;
+    }
+
+    .grid-three,
+    .delivery-grid,
+    .features-six,
+    .reviews,
+    .security-grid,
+    .products{
+        grid-template-columns:1fr;
+    }
+
+    .products{
+        gap:14px;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .hero h1{
+        font-size:39px;
+    }
+
+    .floating-card{
+        font-size:8px;
+    }
 }
 </style>
 </head>
@@ -169,193 +785,557 @@ nav{justify-content:center;flex-wrap:wrap}
 <body>
 
 <header>
-<div class="logo-area">
-<img src="logo.webp" class="logo" alt="Diamond Connect">
-<b>Diamond <span>Connect</span></b>
-</div>
-<nav>
-<a href="#diferenciais">Diferenciais</a>
-<a href="#tabela">Tabela</a>
-<a href="#catalogo">Catálogo</a>
-<a href="#sobre">Sobre</a>
-<a class="navbtn" href="https://wa.me/558582087849" target="_blank">WhatsApp</a>
-</nav>
+    <div class="logo-area">
+        <img src="logo.webp" class="logo" alt="Diamond Connect">
+        <div class="logo-name">Diamond <span>Connect</span></div>
+    </div>
+
+    <nav>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="#tabela">Tabela</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#sobre">Sobre</a>
+        <a class="nav-button" href="https://wa.me/558582087849" target="_blank">WhatsApp</a>
+    </nav>
 </header>
 
 <section class="hero">
-<div>
-<div class="badge">💎 DIAMOND CONNECT • OFICIAL</div>
-<h1>Seu próximo dispositivo <span>está aqui.</span></h1>
-<p>Smartphones, consoles e tecnologia com parcelamento facilitado, atendimento especializado e envio seguro para todo o Brasil.</p>
-<div class="buttons">
-<a class="primary" href="#catalogo">Ver catálogo</a>
-<a class="secondary" href="https://wa.me/558582087849" target="_blank">Falar no WhatsApp</a>
-</div>
-<div class="checks">
-<span>✓ Produtos originais</span>
-<span>✓ Garantia</span>
-<span>✓ Envio seguro</span>
-</div>
-</div>
-<div class="hero-img">
-<div class="float f1">💳 Parcelamento facilitado</div>
-<img src="logo.webp" alt="Diamond Connect">
-<div class="float f2">🛡️ Compra segura</div>
-</div>
+
+    <div class="hero-content">
+
+        <div class="badge">💎 DIAMOND CONNECT • OFICIAL</div>
+
+        <h1>
+            Seu próximo dispositivo
+            <span>está aqui.</span>
+        </h1>
+
+        <p>
+            Smartphones, consoles e tecnologia com condições facilitadas,
+            atendimento especializado e envio seguro para todo o Brasil.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#catalogo" class="primary-button">Ver catálogo</a>
+
+            <a href="https://wa.me/558582087849"
+               target="_blank"
+               class="secondary-button">
+               Falar no WhatsApp
+            </a>
+        </div>
+
+        <div class="hero-checks">
+            <span>✓ Produtos originais</span>
+            <span>✓ Garantia</span>
+            <span>✓ Envio seguro</span>
+        </div>
+
+    </div>
+
+    <div class="hero-visual">
+
+        <div class="floating-card float-one">
+            💳 Parcelamento facilitado
+        </div>
+
+        <img src="logo.webp"
+             class="hero-logo"
+             alt="Diamond Connect">
+
+        <div class="floating-card float-two">
+            🛡️ Compra segura
+        </div>
+
+    </div>
+
 </section>
 
 <section class="section" id="diferenciais">
-<div class="title">
-<small>Diamond Connect</small>
-<h2>Diferenciais da nossa loja</h2>
-<p>Tudo pensado para tornar sua experiência simples, segura e transparente.</p>
-</div>
-<div class="grid3">
-<div class="box"><div class="icon">💳</div><h3>Parcelamento facilitado</h3><p>Consulte nossas condições de entrada e parcelamento diretamente com a equipe.</p></div>
-<div class="box"><div class="icon">🛡️</div><h3>Garantia</h3><p>Tenha mais tranquilidade ao adquirir seu dispositivo com garantia.</p></div>
-<div class="box"><div class="icon">📦</div><h3>Envio seguro</h3><p>Pedidos enviados com rastreamento para você acompanhar sua encomenda.</p></div>
-</div>
+
+    <div class="section-title">
+        <small>Diamond Connect</small>
+        <h2>Diferenciais da nossa loja</h2>
+        <p>
+            Tudo pensado para tornar sua experiência simples,
+            segura e transparente.
+        </p>
+    </div>
+
+    <div class="grid-three">
+
+        <div class="info-card">
+            <div class="info-icon">💳</div>
+            <h3>Parcelamento facilitado</h3>
+            <p>
+                Consulte nossas condições de entrada e parcelamento
+                diretamente com nossa equipe.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="info-icon">🛡️</div>
+            <h3>Garantia Real</h3>
+            <p>
+                Mais tranquilidade para você adquirir seu dispositivo
+                com segurança.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="info-icon">📦</div>
+            <h3>Envio Seguro</h3>
+            <p>
+                Seus pedidos são enviados com rastreamento para
+                acompanhamento da entrega.
+            </p>
+        </div>
+
+    </div>
+
 </section>
 
-<section class="section dark" id="tabela">
-<div class="title">
-<small>Preços</small>
-<h2>Tabela de Preços Oficial</h2>
-<p>Confira as condições disponíveis.</p>
-</div>
-<div class="tablewrap">
-<table>
-<thead><tr><th>Dispositivo</th><th>Entrada</th><th>Parcelas (16x)</th></tr></thead>
-<tbody>
-<tr><td>iPhone 14 256GB</td><td>R$ 250</td><td>R$ 210</td></tr>
-<tr><td>iPhone 14 Pro 256GB</td><td>R$ 375</td><td>R$ 250</td></tr>
-<tr><td>iPhone 14 Pro Max 256GB</td><td>R$ 400</td><td>R$ 280</td></tr>
-<tr><td>iPhone 15 256GB</td><td>R$ 250</td><td>R$ 260</td></tr>
-<tr><td>iPhone 15 Plus 256GB</td><td>R$ 300</td><td>R$ 290</td></tr>
-<tr><td>iPhone 15 Pro 256GB</td><td>R$ 400</td><td>R$ 380</td></tr>
-<tr><td>iPhone 15 Pro Max 256GB</td><td>R$ 500</td><td>R$ 420</td></tr>
-<tr><td>iPhone 16 256GB</td><td>R$ 500</td><td>R$ 320</td></tr>
-<tr><td>iPhone 16 Pro 256GB</td><td>R$ 800</td><td>R$ 470</td></tr>
-<tr><td>iPhone 16 Pro Max 256GB</td><td>R$ 1000</td><td>R$ 550</td></tr>
-<tr><td>iPhone 17 Normal 256GB</td><td>R$ 500</td><td>R$ 465</td></tr>
-<tr><td>iPhone 17 Air 256GB</td><td>R$ 700</td><td>R$ 610</td></tr>
-<tr><td>iPhone 17 Pro 256GB</td><td>R$ 1000</td><td>R$ 665</td></tr>
-<tr><td>iPhone 17 Pro Max 256GB</td><td>R$ 1350</td><td>R$ 715</td></tr>
-<tr><td>Xbox Series X 1TB</td><td>R$ 300</td><td>R$ 265</td></tr>
-<tr><td>PS5 Slim 1TB</td><td>R$ 300</td><td>R$ 265</td></tr>
-</tbody>
-</table>
-</div>
-</section>
+<section class="section section-dark" id="tabela">
 
-<section class="section">
-<div class="grid3">
-<div class="box"><div class="icon">🚚</div><h3>Prazo de entrega</h3><p>Entre 3 a 4 dias úteis após a postagem.</p></div>
-<div class="box"><div class="icon">📍</div><h3>Rastreio seguro</h3><p>O código é enviado para seu WhatsApp após a postagem.</p></div>
-<div class="box"><div class="icon">🛡️</div><h3>Envio com seguro</h3><p>Encomendas via SEDEX possuem seguro contra extravios.</p></div>
-</div>
-</section>
+    <div class="section-title">
+        <small>Preços</small>
+        <h2>Tabela de Preços Oficial</h2>
+        <p>Confira nossas condições de pagamento.</p>
+    </div>
 
-<section class="section dark" id="catalogo">
-<div class="title">
-<small>Produtos</small>
-<h2>Catálogo de Dispositivos</h2>
-<p>Escolha seu dispositivo e fale diretamente com nosso atendimento.</p>
-</div>
-<div class="products">
+    <div class="table-container">
 
-<div class="product"><small>iPhone</small><h3>iPhone 14 256GB</h3><span class="entry">Entrada R$ 250</span><strong class="install">16x R$ 210</strong><a class="buy" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2014%20256GB." target="_blank">RESERVAR</a></div>
-<div class="product"><small>iPhone</small><h3>iPhone 14 Pro 256GB</h3><span class="entry">Entrada R$ 375</span><strong class="install">16x R$ 250</strong><a class="buy" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2014%20Pro%20256GB." target="_blank">RESERVAR</a></div>
-<div class="product"><small>iPhone</small><h3>iPhone 14 Pro Max 256GB</h3><span class="entry">Entrada R$ 400</span><strong class="install">16x R$ 280</strong><a class="buy" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2014%20Pro%20Max%20256GB." target="_blank">RESERVAR</a></div>
+        <table class="price-table">
 
-<div class="product"><small>iPhone</small><h3>iPhone 15 256GB</h3><span class="entry">Entrada R$ 250</span><strong class="install">16x R$ 260</strong><a class="buy" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2015%20256GB." target="_blank">RESERVAR</a></div>
-<div class="product"><small>iPhone</small><h3>iPhone 15 Plus 256GB</h3><span class="entry">Entrada R$ 300</span><strong class="install">16x R$ 290</strong><a class="buy" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2015%20Plus%20256GB." target="_blank">RESERVAR</a></div>
-<div class="product"><small>iPhone</small><h3>iPhone 15 Pro 256GB</h3><span class="entry">Entrada R$ 400</span><strong class="install">16x R$ 380</strong><a class="buy" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2015%20Pro%20256GB." target="_blank">RESERVAR</a></div>
-<div class="product"><small>iPhone</small><h3>iPhone 15 Pro Max 256GB</h3><span class="entry">Entrada R$ 500</span><strong class="install">16x R$ 420</strong><a class="buy" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2015%20Pro%20Max%20256GB." target="_blank">RESERVAR</a></div>
+            <thead>
+                <tr>
+                    <th>Dispositivo</th>
+                    <th>Entrada</th>
+                    <th>Parcelas (16x)</th>
+                </tr>
+            </thead>
 
-<div class="product"><small>iPhone</small><h3>iPhone 16 256GB</h3><span class="entry">Entrada R$ 500</span><strong class="install">16x R$ 320</strong><a class="buy" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2016%20256GB." target="_blank">RESERVAR</a></div>
-<div class="product"><small>iPhone</small><h3>iPhone 16 Pro 256GB</h3><span class="entry">Entrada R$ 800</span><strong class="install">16x R$ 470</strong><a class="buy" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2016%20Pro%20256GB." target="_blank">RESERVAR</a></div>
-<div class="product"><small>iPhone</small><h3>iPhone 16 Pro Max 256GB</h3><span class="entry">Entrada R$ 1000</span><strong class="install">16x R$ 550</strong><a class="buy" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2016%20Pro%20Max%20256GB." target="_blank">RESERVAR</a></div>
+            <tbody>
 
-<div class="product"><small>Novo</small><h3>iPhone 17 Normal 256GB</h3><span class="entry">Entrada R$ 500</span><strong class="install">16x R$ 465</strong><a class="buy" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2017%20Normal%20256GB." target="_blank">RESERVAR</a></div>
-<div class="product"><small>Novo</small><h3>iPhone 17 Air 256GB</h3><span class="entry">Entrada R$ 700</span><strong class="install">16x R$ 610</strong><a class="buy" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2017%20Air%20256GB." target="_blank">RESERVAR</a></div>
-<div class="product"><small>Novo</small><h3>iPhone 17 Pro 256GB</h3><span class="entry">Entrada R$ 1000</span><strong class="install">16x R$ 665</strong><a class="buy" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2017%20Pro%20256GB." target="_blank">RESERVAR</a></div>
-<div class="product"><small>Novo</small><h3>iPhone 17 Pro Max 256GB</h3><span class="entry">Entrada R$ 1350</span><strong class="install">16x R$ 715</strong><a class="buy" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2017%20Pro%20Max%20256GB." target="_blank">RESERVAR</a></div>
+                <tr><td>iPhone 14 256GB</td><td>R$ 250</td><td>R$ 210</td></tr>
+                <tr><td>iPhone 14 Pro 256GB</td><td>R$ 375</td><td>R$ 250</td></tr>
+                <tr><td>iPhone 14 Pro Max 256GB</td><td>R$ 400</td><td>R$ 280</td></tr>
+                <tr><td>iPhone 15 256GB</td><td>R$ 250</td><td>R$ 260</td></tr>
+                <tr><td>iPhone 15 Plus 256GB</td><td>R$ 300</td><td>R$ 290</td></tr>
+                <tr><td>iPhone 15 Pro 256GB</td><td>R$ 400</td><td>R$ 380</td></tr>
+                <tr><td>iPhone 15 Pro Max 256GB</td><td>R$ 500</td><td>R$ 420</td></tr>
+                <tr><td>iPhone 16 256GB</td><td>R$ 500</td><td>R$ 320</td></tr>
+                <tr><td>iPhone 16 Pro 256GB</td><td>R$ 800</td><td>R$ 470</td></tr>
+                <tr><td>iPhone 16 Pro Max 256GB</td><td>R$ 1000</td><td>R$ 550</td></tr>
+                <tr><td>iPhone 17 Normal 256GB</td><td>R$ 500</td><td>R$ 465</td></tr>
+                <tr><td>iPhone 17 Air 256GB</td><td>R$ 700</td><td>R$ 610</td></tr>
+                <tr><td>iPhone 17 Pro 256GB</td><td>R$ 1000</td><td>R$ 665</td></tr>
+                <tr><td>iPhone 17 Pro Max 256GB</td><td>R$ 1350</td><td>R$ 715</td></tr>
+                <tr><td>Xbox Series X 1TB</td><td>R$ 300</td><td>R$ 265</td></tr>
+                <tr><td>PS5 Slim 1TB</td><td>R$ 300</td><td>R$ 265</td></tr>
 
-<div class="product"><small>Console</small><h3>Xbox Series X 1TB</h3><span class="entry">Entrada R$ 300</span><strong class="install">16x R$ 265</strong><a class="buy" href="https://wa.me/558582087849?text=Quero%20comprar%20o%20Xbox%20Series%20X%201TB." target="_blank">COMPRAR</a></div>
-<div class="product"><small>Console</small><h3>PS5 Slim 1TB</h3><span class="entry">Entrada R$ 300</span><strong class="install">16x R$ 265</strong><a class="buy" href="https://wa.me/558582087849?text=Quero%20comprar%20o%20PS5%20Slim%201TB." target="_blank">COMPRAR</a></div>
+            </tbody>
 
-</div>
-</section>
+        </table>
 
-<section class="section">
-<div class="title"><small>Diamond Connect</small><h2>Por que escolher nossa loja?</h2></div>
-<div class="features">
-<div class="feature"><div class="icon">🛡️</div><h3>Garantia Real</h3><p>Mais segurança e tranquilidade na compra do seu dispositivo.</p></div>
-<div class="feature"><div class="icon">🔧</div><h3>Suporte Especializado</h3><p>Equipe disponível para auxiliar você antes e depois da compra.</p></div>
-<div class="feature"><div class="icon">💳</div><h3>Facilidade de Pagamento</h3><p>Condições facilitadas para aquisição do seu dispositivo.</p></div>
-<div class="feature"><div class="icon">📱</div><h3>Dispositivos Premium</h3><p>Smartphones, consoles e produtos modernos de tecnologia.</p></div>
-<div class="feature"><div class="icon">⚡</div><h3>Atendimento Rápido</h3><p>Fale diretamente com nossos atendentes pelo WhatsApp.</p></div>
-<div class="feature"><div class="icon">📦</div><h3>Produtos Originais</h3><p>Produtos anunciados com procedência e garantia.</p></div>
-</div>
-</section>
+    </div>
 
-<section class="section dark" id="sobre">
-<div class="about">
-<div>
-<div class="title" style="text-align:left;margin-bottom:20px">
-<small>Sobre nós</small><h2>Quem é a <span>Diamond Connect?</span></h2>
-</div>
-<p>A Diamond Connect nasceu com o objetivo de oferecer produtos de tecnologia com condições acessíveis e atendimento próximo ao cliente.</p>
-<p>Trabalhamos com smartphones, consoles e produtos de tecnologia, buscando proporcionar uma experiência de compra simples, transparente e segura.</p>
-<p>Nossa equipe está disponível pelo WhatsApp para auxiliar você desde a escolha do produto até o acompanhamento do pedido.</p>
-</div>
-<div class="stats">
-<div class="stat"><strong>100%</strong><span>Foco em produtos originais</span></div>
-<div class="stat"><strong>16x</strong><span>Condição anunciada</span></div>
-<div class="stat"><strong>3–4</strong><span>Dias úteis após postagem</span></div>
-<div class="stat"><strong>5★</strong><span>Avaliações</span></div>
-</div>
-</div>
 </section>
 
 <section class="section">
-<div class="title"><small>Clientes</small><h2>Feedback dos nossos clientes</h2></div>
-<div class="reviews">
-<div class="review"><div class="stars">★★★★★</div><p>"Meu iPhone chegou em 3 dias certinho em casa. Top demais!"</p><b>Felipe Albuquerque</b></div>
-<div class="review"><div class="stars">★★★★★</div><p>"A Diamond Connect é muito confiável, o suporte é excelente."</p><b>Juliana Costa</b></div>
-<div class="review"><div class="stars">★★★★★</div><p>"Chegou lacrado e com garantia. Recomendo a todos."</p><b>Bruno Mendes</b></div>
-<div class="review"><div class="stars">★★★★★</div><p>"Melhor preço do mercado gamer."</p><b>Ricardo G.</b></div>
-<div class="review"><div class="stars">★★★★★</div><p>"Tirei todas as dúvidas no WhatsApp."</p><b>Mariana S.</b></div>
-<div class="review"><div class="stars">★★★★★</div><p>"Aparelho lacrado e original."</p><b>Leonardo F.</b></div>
-<div class="review"><div class="stars">★★★★★</div><p>"Comprei o PS5 e chegou perfeito."</p><b>Beatriz L.</b></div>
-<div class="review"><div class="stars">★★★★★</div><p>"Loja de confiança mesmo."</p><b>Tiago M.</b></div>
-<div class="review"><div class="stars">★★★★★</div><p>"Envio segurado me deu tranquilidade."</p><b>Fernanda O.</b></div>
-</div>
+
+    <div class="delivery-grid">
+
+        <div class="delivery-card">
+            <div class="icon">🚚</div>
+            <h3>Prazo de entrega</h3>
+            <p>
+                Receba seu dispositivo em sua residência entre
+                <b>3 a 4 dias úteis</b> após a postagem.
+            </p>
+        </div>
+
+        <div class="delivery-card">
+            <div class="icon">📍</div>
+            <h3>Rastreio seguro</h3>
+            <p>
+                O código de rastreamento é enviado para seu WhatsApp
+                assim que o pedido for postado.
+            </p>
+        </div>
+
+        <div class="delivery-card">
+            <div class="icon">🛡️</div>
+            <h3>Envio com seguro</h3>
+            <p>
+                Todas as encomendas via SEDEX possuem seguro contra
+                extravios.
+            </p>
+        </div>
+
+    </div>
+
 </section>
 
-<section class="section dark">
-<div class="security">
-<div><div class="icon">🔒</div><strong>Site seguro</strong><span>Navegação protegida por HTTPS.</span></div>
-<div><div class="icon">🛡️</div><strong>Compra protegida</strong><span>Atendimento e acompanhamento do pedido.</span></div>
-<div><div class="icon">✓</div><strong>Produtos originais</strong><span>Produtos com procedência e garantia.</span></div>
+<section class="section section-dark" id="catalogo">
+
+    <div class="section-title">
+        <small>Produtos</small>
+        <h2>Catálogo de Dispositivos</h2>
+        <p>
+            Escolha seu dispositivo e fale diretamente com nosso atendimento.
+        </p>
+    </div>
+
+    <div class="products">
+
+        <div class="product-card">
+            <span class="product-type">iPhone</span>
+            <h3>iPhone 14 256GB</h3>
+            <span class="entry">Entrada R$ 250</span>
+            <strong class="installment">16x R$ 210</strong>
+            <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2014%20256GB." target="_blank">RESERVAR</a>
+        </div>
+
+        <div class="product-card">
+            <span class="product-type">iPhone</span>
+            <h3>iPhone 14 Pro 256GB</h3>
+            <span class="entry">Entrada R$ 375</span>
+            <strong class="installment">16x R$ 250</strong>
+            <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2014%20Pro%20256GB." target="_blank">RESERVAR</a>
+        </div>
+
+        <div class="product-card">
+            <span class="product-type">iPhone</span>
+            <h3>iPhone 14 Pro Max 256GB</h3>
+            <span class="entry">Entrada R$ 400</span>
+            <strong class="installment">16x R$ 280</strong>
+            <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2014%20Pro%20Max%20256GB." target="_blank">RESERVAR</a>
+        </div>
+
+        <div class="product-card">
+            <span class="product-type">iPhone</span>
+            <h3>iPhone 15 256GB</h3>
+            <span class="entry">Entrada R$ 250</span>
+            <strong class="installment">16x R$ 260</strong>
+            <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2015%20256GB." target="_blank">RESERVAR</a>
 </div>
+
+<div class="product-card">
+    <span class="product-type">iPhone</span>
+    <h3>iPhone 15 Plus 256GB</h3>
+    <span class="entry">Entrada R$ 300</span>
+    <strong class="installment">16x R$ 290</strong>
+    <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2015%20Plus%20256GB." target="_blank">RESERVAR</a>
+</div>
+
+<div class="product-card">
+    <span class="product-type">iPhone</span>
+    <h3>iPhone 15 Pro 256GB</h3>
+    <span class="entry">Entrada R$ 400</span>
+    <strong class="installment">16x R$ 380</strong>
+    <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2015%20Pro%20256GB." target="_blank">RESERVAR</a>
+</div>
+
+<div class="product-card">
+    <span class="product-type">iPhone</span>
+    <h3>iPhone 15 Pro Max 256GB</h3>
+    <span class="entry">Entrada R$ 500</span>
+    <strong class="installment">16x R$ 420</strong>
+    <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2015%20Pro%20Max%20256GB." target="_blank">RESERVAR</a>
+</div>
+
+<div class="product-card">
+    <span class="product-type">iPhone</span>
+    <h3>iPhone 16 256GB</h3>
+    <span class="entry">Entrada R$ 500</span>
+    <strong class="installment">16x R$ 320</strong>
+    <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2016%20256GB." target="_blank">RESERVAR</a>
+</div>
+
+<div class="product-card">
+    <span class="product-type">iPhone</span>
+    <h3>iPhone 16 Pro 256GB</h3>
+    <span class="entry">Entrada R$ 800</span>
+    <strong class="installment">16x R$ 470</strong>
+    <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2016%20Pro%20256GB." target="_blank">RESERVAR</a>
+</div>
+
+<div class="product-card">
+    <span class="product-type">iPhone</span>
+    <h3>iPhone 16 Pro Max 256GB</h3>
+    <span class="entry">Entrada R$ 1000</span>
+    <strong class="installment">16x R$ 550</strong>
+    <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2016%20Pro%20Max%20256GB." target="_blank">RESERVAR</a>
+</div>
+
+<div class="product-card">
+    <span class="product-type">Novo</span>
+    <h3>iPhone 17 Normal 256GB</h3>
+    <span class="entry">Entrada R$ 500</span>
+    <strong class="installment">16x R$ 465</strong>
+    <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2017%20Normal%20256GB." target="_blank">RESERVAR</a>
+</div>
+
+<div class="product-card">
+    <span class="product-type">Novo</span>
+    <h3>iPhone 17 Air 256GB</h3>
+    <span class="entry">Entrada R$ 700</span>
+    <strong class="installment">16x R$ 610</strong>
+    <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2017%20Air%20256GB." target="_blank">RESERVAR</a>
+</div>
+
+<div class="product-card">
+    <span class="product-type">Novo</span>
+    <h3>iPhone 17 Pro 256GB</h3>
+    <span class="entry">Entrada R$ 1000</span>
+    <strong class="installment">16x R$ 665</strong>
+    <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2017%20Pro%20256GB." target="_blank">RESERVAR</a>
+</div>
+
+<div class="product-card">
+    <span class="product-type">Novo</span>
+    <h3>iPhone 17 Pro Max 256GB</h3>
+    <span class="entry">Entrada R$ 1350</span>
+    <strong class="installment">16x R$ 715</strong>
+    <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2017%20Pro%20Max%20256GB." target="_blank">RESERVAR</a>
+</div>
+
+<div class="product-card">
+    <span class="product-type">Console</span>
+    <h3>Xbox Series X 1TB</h3>
+    <span class="entry">Entrada R$ 300</span>
+    <strong class="installment">16x R$ 265</strong>
+    <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20comprar%20o%20Xbox%20Series%20X%201TB." target="_blank">COMPRAR</a>
+</div>
+
+<div class="product-card">
+    <span class="product-type">Console</span>
+    <h3>PS5 Slim 1TB</h3>
+    <span class="entry">Entrada R$ 300</span>
+    <strong class="installment">16x R$ 265</strong>
+    <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20comprar%20o%20PS5%20Slim%201TB." target="_blank">COMPRAR</a>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+    <div class="section-title">
+        <small>Experiência</small>
+        <h2>Por que escolher a Diamond Connect?</h2>
+    </div>
+
+    <div class="features-six">
+
+        <div class="feature">
+            <div class="feature-icon">🛡️</div>
+            <h3>Garantia Real</h3>
+            <p>Mais segurança e tranquilidade na compra do seu dispositivo.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🔧</div>
+            <h3>Suporte Especializado</h3>
+            <p>Nossa equipe está disponível para ajudar antes e depois da compra.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">💳</div>
+            <h3>Facilidade de Pagamento</h3>
+            <p>Condições facilitadas para você adquirir seu dispositivo.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">📱</div>
+            <h3>Dispositivos Premium</h3>
+            <p>Smartphones e consoles selecionados para nossos clientes.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">⚡</div>
+            <h3>Atendimento Rápido</h3>
+            <p>Atendimento direto e rápido através do WhatsApp.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">📦</div>
+            <h3>Envio Seguro</h3>
+            <p>Pedidos enviados com rastreamento para acompanhamento.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section section-dark" id="sobre">
+
+    <div class="about">
+
+        <div class="about-text">
+
+            <div class="section-title" style="text-align:left;margin-bottom:20px">
+                <small>Sobre nós</small>
+                <h2>Quem é a <span>Diamond Connect?</span></h2>
+            </div>
+
+            <p>
+                A Diamond Connect nasceu com o objetivo de oferecer
+                produtos de tecnologia com condições acessíveis,
+                atendimento próximo e uma experiência de compra segura.
+            </p>
+
+            <p>
+                Trabalhamos com smartphones, consoles e acessórios,
+                buscando sempre oferecer transparência e suporte
+                durante todo o processo.
+            </p>
+
+        </div>
+
+        <div class="stats">
+
+            <div class="stat">
+                <strong>100%</strong>
+                <span>Produtos originais</span>
+            </div>
+
+            <div class="stat">
+                <strong>16x</strong>
+                <span>Parcelamento</span>
+            </div>
+
+            <div class="stat">
+                <strong>3–4</strong>
+                <span>Dias úteis</span>
+            </div>
+
+            <div class="stat">
+                <strong>5★</strong>
+                <span>Atendimento</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section">
+
+    <div class="section-title">
+        <small>Clientes</small>
+        <h2>Feedback dos nossos clientes</h2>
+    </div>
+
+    <div class="reviews">
+
+        <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>"Meu iPhone chegou em 3 dias certinho em casa. Top demais!"</p>
+            <b>Felipe Albuquerque</b>
+        </div>
+
+        <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>"A Diamond Connect é muito confiável, o suporte é excelente."</p>
+            <b>Juliana Costa</b>
+        </div>
+
+        <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>"Chegou lacrado e com garantia. Recomendo a todos."</p>
+            <b>Bruno Mendes</b>
+        </div>
+
+        <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>"Melhor preço do mercado gamer."</p>
+            <b>Ricardo G.</b>
+        </div>
+
+        <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>"Tirei todas as dúvidas no WhatsApp."</p>
+            <b>Mariana S.</b>
+        </div>
+
+        <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>"Aparelho lacrado e original."</p>
+            <b>Leonardo F.</b>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section section-dark">
+
+    <div class="security-grid">
+
+        <div class="security-card">
+            <div class="icon">🔒</div>
+            <strong>Site seguro</strong>
+            <span>Navegação protegida por HTTPS.</span>
+        </div>
+
+        <div class="security-card">
+            <div class="icon">🛡️</div>
+            <strong>Compra protegida</strong>
+            <span>Atendimento e acompanhamento do pedido.</span>
+        </div>
+
+        <div class="security-card">
+            <div class="icon">✓</div>
+            <strong>Produtos originais</strong>
+            <span>Produtos com procedência e garantia.</span>
+        </div>
+
+    </div>
+
 </section>
 
 <section class="cta">
-<div class="ctabox">
-<h2>Encontrou seu próximo dispositivo?</h2>
-<p>Fale agora com a Diamond Connect pelo WhatsApp e consulte a disponibilidade.</p>
-<a class="primary" href="https://wa.me/558582087849" target="_blank">Falar com a Diamond Connect</a>
-</div>
+
+    <div class="cta-box">
+
+        <h2>Encontrou seu próximo dispositivo?</h2>
+
+        <p>
+            Fale agora com a Diamond Connect pelo WhatsApp
+            e consulte a disponibilidade.
+        </p>
+
+        <a
+            class="primary-button"
+            href="https://wa.me/558582087849"
+            target="_blank">
+            Falar com a Diamond Connect
+        </a>
+
+    </div>
+
 </section>
 
-<a class="whatsapp" href="https://wa.me/558582087849" target="_blank">💬</a>
+<a
+    class="whatsapp"
+    href="https://wa.me/558582087849"
+    target="_blank">
+    💬
+</a>
 
 <footer>
-<b>Diamond Connect © 2026</b>
-<p>CNPJ: 45.145.228/0001-08 | São Paulo - BR</p>
+
+    <strong>Diamond Connect © 2026</strong>
+
+    <p>
+        CNPJ: 45.145.228/0001-08 | São Paulo - BR
+    </p>
+
 </footer>
 
 </body>
-  </html>
+</html>
