@@ -1,197 +1,841 @@
-
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Diamond Connect | Oficial</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="Diamond Connect - Smartphones, consoles e tecnologia com parcelamento facilitado.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
-        :root { --primary: #0A4D9C; --dark: #050505; --card: #111; --green: #25D366; --glass: rgba(174, 82, 255, 0.2); }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background: var(--dark); color: white; overflow-x: hidden; scroll-behavior: smooth; }
-        
-        header { padding: 25px; display: flex; justify-content: center; background: rgba(0,0,0,0.98); border-bottom: 2px solid var(--primary); position: sticky; top: 0; z-index: 100; }
-        .logo-img { height: 110px;border-radius: 50%; }
-
-        /* BANNER ROTATIVO CORRIGIDO - 4 SEGUNDOS POR MSG */
-        .slider-container { 
-            width: 100%; 
-            background: #1a052e; 
-            overflow: hidden; /* Isso esconde as outras mensagens */
-            height: 60px; 
-            display: flex; 
-            align-items: center; 
-            border-bottom: 1px solid var(--primary); 
-        }
-        .slider { 
-            display: flex; 
-            width: 500%; /* 5 slides = 500% */
-            animation: slideText 20s infinite ease-in-out; /* 20s / 5 slides = 4s por slide */
-        }
-        .slide { 
-            width: 20%; /* Cada slide ocupa exatamente o espaço visível */
-            text-align: center; 
-            font-size: 16px; 
-            font-weight: 800; 
-            text-transform: uppercase; 
-            color: #fff; 
-            flex-shrink: 0; 
-            padding: 0 10px;
-        }
-        
-        @keyframes slideText { 
-            0%, 18% { transform: translateX(0); }
-            20%, 38% { transform: translateX(-20%); }
-            40%, 58% { transform: translateX(-40%); }
-            60%, 78% { transform: translateX(-60%); }
-            80%, 98% { transform: translateX(-80%); }
-            100% { transform: translateX(0); }
+        :root {
+            --primary: #0A4D9C;
+            --primary-light: #1677d2;
+            --primary-dark: #06366d;
+            --dark: #05070a;
+            --dark-2: #080b10;
+            --card: #10151c;
+            --card-2: #131a23;
+            --text: #ffffff;
+            --muted: #aeb7c4;
+            --border: rgba(10, 77, 156, 0.35);
+            --green: #25D366;
         }
 
-        .section-title { text-align: center; padding: 50px 20px 20px; color: var(--primary); font-size: 28px; font-weight: 800; text-transform: uppercase; }
-        .price-table-section { padding: 20px; max-width: 1100px; margin: auto; }
-        .price-table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 20px; overflow: hidden; border: 1px solid var(--glass); }
-        .price-table th { background: var(--primary); padding: 20px; text-align: left; font-size: 14px; text-transform: uppercase; color: white; }
-        .price-table td { padding: 15px 20px; border-bottom: 1px solid var(--glass); font-size: 15px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-        .shipping-info { padding: 40px 20px; max-width: 1200px; margin: auto; }
-        .shipping-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .ship-card { background: linear-gradient(145deg, #150226, #000); border: 2px solid var(--primary); padding: 40px; border-radius: 25px; text-align: center; }
-        .ship-card img { height: 50px; margin-bottom: 20px; }
-        .ship-card h3 { color: var(--primary); margin-bottom: 15px; font-size: 22px; font-weight: 800; }
-        .ship-card p { font-size: 15px; line-height: 1.6; opacity: 0.9; }
+        html {
+            scroll-behavior: smooth;
+        }
 
-        .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 40px 20px; max-width: 1400px; margin: auto; }
-        .card { background: var(--card); border: 1px solid var(--glass); border-radius: 20px; padding: 30px; text-align: center; display: flex; flex-direction: column; transition: 0.3s; }
-        .card h3 { font-size: 18px; margin-bottom: 10px; font-weight: 700; color: #fff; }
-        .entrada { color: var(--primary); font-weight: 700; font-size: 14px; text-transform: uppercase; }
-        .parcela { font-size: 28px; font-weight: 800; color: #fff; margin: 10px 0; }
-        .btn-link { background: var(--green); color: white; text-decoration: none; padding: 15px; border-radius: 12px; font-weight: 800; margin-top: auto; display: block; }
+        body {
+            background:
+                radial-gradient(circle at top right, rgba(10,77,156,.18), transparent 35%),
+                var(--dark);
+            color: var(--text);
+            overflow-x: hidden;
+        }
 
-        .deposits { background: #080808; padding: 80px 20px; border-top: 1px solid var(--glass); }
-        .deposits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; max-width: 1300px; margin: auto; }
-        .dep-card { background: #121212; padding: 25px; border-radius: 15px; border-left: 6px solid var(--primary); }
-        .stars { color: #007bff; margin-bottom: 10px; font-size: 18px; }
-        .dep-name { display: block; font-weight: 800; color: var(--primary); font-size: 15px; margin-top: 10px;}
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-        .wa-float { position: fixed; bottom: 35px; right: 35px; background: var(--green); width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
-        footer { text-align: center; padding: 40px; opacity: 0.5; font-size: 12px; border-top: 1px solid var(--glass); }
-    </style>
-</head>
-<body>
+        /* ================= HEADER ================= */
 
-    <header><header>
-    <img src="logo.webp" class="logo-img" alt="DiamanteConnect">
-</header>
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 82px;
+            padding: 0 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(5,7,10,.92);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .brand-name {
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .brand-name span {
+            color: var(--primary-light);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        nav a {
+            color: #dce3eb;
+            font-size: 14px;
+            font-weight: 500;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: #4b9bea;
+        }
+
+        .nav-button {
+            background: var(--primary);
+            padding: 11px 18px;
+            border-radius: 10px;
+            font-weight: 700;
+        }
+
+        .nav-button:hover {
+            color: white;
+            background: var(--primary-light);
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 600px;
+            padding: 80px 7%;
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            align-items: center;
+            gap: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(10,77,156,.15);
+            filter: blur(100px);
+            border-radius: 50%;
+            right: -150px;
+            top: 40px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border: 1px solid var(--border);
+            background: rgba(10,77,156,.12);
+            color: #69aef2;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 5vw, 66px);
+            line-height: 1.08;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: #2786df;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: var(--muted);
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            padding: 15px 24px;
+            border-radius: 12px;
+            font-weight: 800;
+            transition: .3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 1px solid #283341;
+            background: #10151c;
+            padding: 15px 24px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: .3s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+        }
+
+        .hero-checks {
+            display: flex;
+            gap: 25px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .check {
+            color: #cbd4df;
+            font-size: 13px;
+        }
+
+        .check strong {
+            color: #43a0ee;
+        }
+
+        .hero-visual {
+            min-height: 430px;
+            border-radius: 30px;
+            border: 1px solid var(--border);
+            background:
+                radial-gradient(circle at center, rgba(10,77,156,.3), transparent 55%),
+                linear-gradient(145deg, #111923, #070a0e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,.35);
+        }
+
+        .hero-logo {
+            width: 230px;
+            height: 230px;
+            object-fit: contain;
+            border-radius: 50%;
+            filter: drop-shadow(0 20px 40px rgba(10,77,156,.35));
+        }
+
+        .floating-card {
+            position: absolute;
+            background: rgba(10,15,22,.9);
+            border: 1px solid var(--border);
+            padding: 14px 18px;
+            border-radius: 14px;
+            backdrop-filter: blur(10px);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .floating-one {
+            top: 35px;
+            left: 25px;
+        }
+
+        .floating-two {
+            bottom: 35px;
+            right: 25px;
+        }
+
+        /* ================= SECTION ================= */
+
+        .section {
+            padding: 85px 7%;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 45px;
+        }
+
+        .section-header .mini-title {
+            color: #328fe2;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .section-header p {
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* ================= DIFFERENTIALS ================= */
+
+        .differentials {
+            background: var(--dark-2);
+            border-top: 1px solid rgba(255,255,255,.03);
+            border-bottom: 1px solid rgba(255,255,255,.03);
+        }
+
+        .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .diff-card {
+            background: linear-gradient(145deg, #101720, #0b1016);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 30px;
+            transition: .3s;
+        }
+
+        .diff-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(40,134,223,.7);
+        }
+
+        .diff-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 13px;
+            background: rgba(10,77,156,.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .diff-card h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .diff-card p {
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 13px;
+        }
+
+        /* ================= TABLE ================= */
+
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            background: var(--card);
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 650px;
+        }
+
+        .price-table th {
+            background: var(--primary);
+            padding: 18px 20px;
+            text-align: left;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        .price-table td {
+            padding: 17px 20px;
+            border-bottom: 1px solid rgba(255,255,255,.06);
+            font-size: 14px;
+            color: #dce3eb;
+        }
+
+        .price-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .price-table tr:hover td {
+            background: rgba(10,77,156,.06);
+        }
+
+        /* ================= SHIPPING ================= */
+
+        .shipping-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .shipping-card {
+            text-align: center;
+            padding: 32px 25px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+        }
+
+        .shipping-icon {
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .shipping-card h3 {
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 17px;
+        }
+
+        .shipping-card p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        /* ================= PRODUCTS ================= */
+
+        .products-section {
+            background: var(--dark-2);
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .product-card {
+            background: linear-gradient(145deg, #111820, #0b1015);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            min-height: 245px;
+            transition: .3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(40,134,223,.75);
+            box-shadow: 0 15px 35px rgba(0,0,0,.25);
+        }
+
+        .product-type {
+            color: #348fdf;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .product-card h3 {
+            font-size: 17px;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+
+        .entry {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .installment {
+            font-size: 26px;
+            font-weight: 800;
+            margin: 5px 0 20px;
+        }
+
+        .installment span {
+            font-size: 12px;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .product-button {
+            margin-top: auto;
+            background: var(--green);
+            color: #fff;
+            text-align: center;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 800;
+            transition: .3s;
+        }
+
+        .product-button:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.08);
+        }
+
+        /* ================= WHY ================= */
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .why-card {
+            padding: 28px;
+            border-radius: 18px;
+            background: var(--card);
+            border: 1px solid var(--border);
+        }
+
+        .why-card .icon {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .why-card h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .why-card p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about {
+            background: var(--dark-2);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: var(--muted);
+            line-height: 1.9;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .stat {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 28px;
+            border-radius: 18px;
+            text-align: center;
+        }
+
+        .stat strong {
+            display: block;
+            color: #348fdf;
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .stat span {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* ================= REVIEWS ================= */
+
+        .reviews {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .review {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 25px;
+        }
+
+        .stars {
+            color: #ffd43b;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .review p {
+            color: #dce3eb;
+            font-size: 13px;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        .review strong {
+            color: #4b9bea;
+            font-size: 13px;
+        }
+
+        /* ================= SECURITY ================= */
+
+        .security {
+            background:
+                linear-gradient(145deg, rgba(10,77,156,.16), rgba(10,77,156,.03)),
+                #080c11;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .security-card {
+            text-align: center;
+            padding: 28px;
+        }
+
+        .security-card .icon {
+            font-size: 27px;
+            margin-bottom: 12px;
+        }
+
+        .security-card h3 {
+            font-size: 14px;
+            margin-bottom: 7px;
+        }
+
+        .security-card p {
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        /* ================= CTA ================= */
+
+        .cta {
+            padding: 90px 7%;
+            text-align: center;
+        }
+
+        .cta-box {
+            max-width: 950px;
+            margin: auto;
+            padding: 60px 30px;
+            border-radius: 30px;
+            background:
+                radial-gradient(circle at center, rgba(10,77,156,.3), transparent 65%),
+                #0c1219;
+            border: 1px solid var(--border);
+        }
+
+        .cta h2 {
+            font-size: clamp(28px, 4vw, 45px);
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto 25px;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* ================= WHATSAPP ================= */
+
+        .whatsapp {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            background: var(--green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 29px;
+            z-index: 9999;
+            box-shadow: 0 10px 30px rgba(0,0,0,.45);
+            transition: .3s;
+        }
+
+        .whatsapp:hover {
+            transform: scale(1.08);
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+            background: #030405;
+            border-top: 1px solid rgba(255,255,255,.05);
+        }
+
+        footer strong {
+            color: #fff;
+        }
+
+        footer p {
+            color: #68727e;
+            font-size: 11px;
+            margin-top: 8px;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 1050px) {
+            .products {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 850px) {
+
+            header {
+                height: auto;
+                padding: 14px 5%;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav {
+                gap: 14px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 11px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 55px 5%;
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons,
+            .hero-checks {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                min-height: 320px;
+            }
+
+            .diff-grid,
+            .shipping-grid,
+            .why-grid,
+            .security-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .about-content {
+                text-align: center;
+            }
+
+            .reviews {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .brand-name {
+                font-size: 17px;
+            }
+
+            .logo-img {
+                width: 45px;
+                height: 45px;
+            }
+
+            nav {
+                gap: 9px;
+            }
+
+            nav a {
+                font-size: 10px;
+            }
+
+            .nav-button {
+                padding: 8px 10px;
+            }
+
+            .hero {
+                padding-top: 40px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+                letter-spacing: -1px;
+            }
+
+            .hero-visual {
+                min-height: 270px;
+            }
+
+            .hero-logo {
         
-    </header>
-
-    <div class="slider-container">
-        <div class="slider">
-            <div class="slide">🚀 ENVIAMOS PARA TODO O BRASIL VIA SEDEX</div>
-            <div class="slide">💎 IPHONES LACRADOS COM 1 ANO DE GARANTIA</div>
-            <div class="slide">💳 PARCELAMENTO NO BOLETO SEM BUROCRACIA</div>
-            <div class="slide">🛡️ PRODUTOS 100% ORIGINAIS E SEGURADOS</div>
-            <div class="slide">📱 SUPORTE ESPECIALIZADO VIA WHATSAPP</div>
-        </div>
-    </div>
-
-    <h2 class="section-title">Tabela de Preços Oficial</h2>
-    <section class="price-table-section">
-        <table class="price-table">
-            <thead><tr><th>Dispositivo</th><th>Entrada</th><th>Parcelas (16x)</th></tr></thead>
-            <tbody>
-                <tr><td>iPhone 14 256GB</td><td>R$ 250</td><td>R$ 210</td></tr>
-                <tr><td>iPhone 14 Pro 256GB</td><td>R$ 375</td><td>R$ 250</td></tr>
-                <tr><td>iPhone 14 Pro Max 256GB</td><td>R$ 400</td><td>R$ 280</td></tr>
-                <tr><td>iPhone 15 256GB</td><td>R$ 250</td><td>R$ 260</td></tr>
-                <tr><td>iPhone 15 Plus 256GB</td><td>R$ 300</td><td>R$ 290</td></tr>
-                <tr><td>iPhone 15 Pro 256GB</td><td>R$ 400</td><td>R$ 380</td></tr>
-                <tr><td>iPhone 15 Pro Max 256GB</td><td>R$ 500</td><td>R$ 420</td></tr>
-                <tr><td>iPhone 16 256GB</td><td>R$ 500</td><td>R$ 320</td></tr>
-                <tr><td>iPhone 16 Pro 256GB</td><td>R$ 800</td><td>R$ 470</td></tr>
-                <tr><td>iPhone 16 Pro Max 256GB</td><td>R$ 1000</td><td>R$ 550</td></tr>
-                <tr><td>iPhone 17 Normal 256GB</td><td>R$ 500</td><td>R$ 465</td></tr>
-                <tr><td>iPhone 17 Air 256GB</td><td>R$ 700</td><td>R$ 610</td></tr>
-                <tr><td>iPhone 17 Pro 256GB</td><td>R$ 1000</td><td>R$ 665</td></tr>
-                <tr><td>iPhone 17 Pro Max 256GB</td><td>R$ 1350</td><td>R$ 715</td></tr>
-                <tr><td>Xbox Series X 1TB</td><td>R$ 300</td><td>R$ 265</td></tr>
-                <tr><td>PS5 Slim 1TB</td><td>R$ 300</td><td>R$ 265</td></tr>
-            </tbody>
-        </table>
-    </section>
-
-    <section class="shipping-info">
-        <div class="shipping-grid">
-            <div class="ship-card">
-                
-                <h3>PRAZO DE ENTREGA</h3>
-                <p>Receba seu dispositivo em sua residência entre <b>3 a 4 dias úteis</b> após a postagem.</p>
-            </div>
-            <div class="ship-card">
-                
-                <h3>RASTREIO SEGURO</h3>
-                <p>O código é enviado para seu WhatsApp assim que o pedido for postado.</p>
-            </div>
-            <div class="ship-card">
-                
-                <h3>ENVIO COM SEGURO</h3>
-                <p>Todas as encomendas via SEDEX possuem seguro total contra extravios.</p>
-            </div>
-        </div>
-    </section>
-
-    <h2 class="section-title">Catálogo de Dispositivos</h2>
-    <div class="products">
-        <div class="card"><h3>iPhone 14 256GB</h3><p class="entrada">Entrada R$ 250</p><span class="parcela">16x R$ 210</span><a href="https://wa.me/558582087849?text=Dispositivo%20selecionado:%20iPhone%2014%20-%20Capacidade:%20256GB%20-%20Entrada:%20R$250%20-%20Parcela:%2016x%20de%20R$210.%20Cor%20a%20consultar%20com%20o%20atendente." class="btn-link">RESERVAR</a></div>
-        <div class="card"><h3>iPhone 14 Pro 256GB</h3><p class="entrada">Entrada R$ 375</p><span class="parcela">16x R$ 250</span><a href="https://wa.me/558582087849?text=Dispositivo%20selecionado:%20iPhone%2014%20Pro%20-%20Capacidade:%20256GB%20-%20Entrada:%20R$375%20-%20Parcela:%2016x%20de%20R$250.%20Cor%20a%20consultar%20com%20o%20atendente." class="btn-link">RESERVAR</a></div>
-        <div class="card"><h3>iPhone 14 Pro Max 256GB</h3><p class="entrada">Entrada R$ 400</p><span class="parcela">16x R$ 280</span><a href="https://wa.me/558582087849?text=Dispositivo%20selecionado:%20iPhone%2014%20Pro%20Max%20-%20Capacidade:%20256GB%20-%20Entrada:%20R$400%20-%20Parcela:%2016x%20de%20R$280.%20Cor%20a%20consultar%20com%20o%20atendente." class="btn-link">RESERVAR</a></div>
-        
-        <div class="card"><h3>iPhone 15 256GB</h3><p class="entrada">Entrada R$ 250</p><span class="parcela">16x R$ 260</span><a href="https://wa.me/558582087849?text=Dispositivo%20selecionado:%20iPhone%2015%20-%20Capacidade:%20256GB%20-%20Entrada:%20R$250%20-%20Parcela:%2016x%20de%20R$260.%20Cor%20a%20consultar%20com%20o%20atendente." class="btn-link">RESERVAR</a></div>
-        <div class="card"><h3>iPhone 15 Plus 256GB</h3><p class="entrada">Entrada R$ 300</p><span class="parcela">16x R$ 290</span><a href="https://wa.me/558582087849?text=Dispositivo%20selecionado:%20iPhone%2015%20Plus%20-%20Capacidade:%20256GB%20-%20Entrada:%20R$300%20-%20Parcela:%2016x%20de%20R$290.%20Cor%20a%20consultar%20com%20o%20atendente." class="btn-link">RESERVAR</a></div>
-        <div class="card"><h3>iPhone 15 Pro 256GB</h3><p class="entrada">Entrada R$ 400</p><span class="parcela">16x R$ 380</span><a href="https://wa.me/558582087849?text=Dispositivo%20selecionado:%20iPhone%2015%20Pro%20-%20Capacidade:%20256GB%20-%20Entrada:%20R$400%20-%20Parcela:%2016x%20de%20R$380.%20Cor%20a%20consultar%20com%20o%20atendente." class="btn-link">RESERVAR</a></div>
-        <div class="card"><h3>iPhone 15 Pro Max 256GB</h3><p class="entrada">Entrada R$ 500</p><span class="parcela">16x R$ 420</span><a href="https://wa.me/558582087849?text=Dispositivo%20selecionado:%20iPhone%2015%20Pro%20Max%20-%20Capacidade:%20256GB%20-%20Entrada:%20R$500%20-%20Parcela:%2016x%20de%20R$420.%20Cor%20a%20consultar%20com%20o%20atendente." class="btn-link">RESERVAR</a></div>
-
-        <div class="card"><h3>iPhone 16 256GB</h3><p class="entrada">Entrada R$ 500</p><span class="parcela">16x R$ 320</span><a href="https://wa.me/558582087849?text=Dispositivo%20selecionado:%20iPhone%2016%20-%20Capacidade:%20256GB%20-%20Entrada:%20R$500%20-%20Parcela:%2016x%20de%20R$320.%20Cor%20a%20consultar%20com%20o%20atendente." class="btn-link">RESERVAR</a></div>
-        <div class="card"><h3>iPhone 16 Pro 256GB</h3><p class="entrada">Entrada R$ 800</p><span class="parcela">16x R$ 470</span><a href="https://wa.me/558582087849?text=Dispositivo%20selecionado:%20iPhone%2016%20Pro%20-%20Capacidade:%20256GB%20-%20Entrada:%20R$800%20-%20Parcela:%2016x%20de%20R$470.%20Cor%20a%20consultar%20com%20o%20atendente." class="btn-link">RESERVAR</a></div>
-        <div class="card"><h3>iPhone 16 Pro Max 256GB</h3><p class="entrada">Entrada R$ 1000</p><span class="parcela">16x R$ 550</span><a href="https://wa.me/558582087849?text=Dispositivo%20selecionado:%20iPhone%2016%20Pro%20Max%20-%20Capacidade:%20256GB%20-%20Entrada:%20R$1000%20-%20Parcela:%2016x%20de%20R$550.%20Cor%20a%20consultar%20com%20o%20atendente." class="btn-link">RESERVAR</a></div>
-
-        <div class="card"><h3>iPhone 17 Normal 256GB</h3><p class="entrada">Entrada R$ 500</p><span class="parcela">16x R$ 465</span><a href="https://wa.me/558582087849?text=Dispositivo%20selecionado:%20iPhone%2017%20Normal%20-%20Capacidade:%20256GB%20-%20Entrada:%20R$500%20-%20Parcela:%2016x%20de%20R$465.%20Cor%20a%20consultar%20com%20o%20atendente." class="btn-link">RESERVAR</a></div>
-        <div class="card"><h3>iPhone 17 Air 256GB</h3><p class="entrada">Entrada R$ 700</p><span class="parcela">16x R$ 610</span><a href="https://wa.me/558582087849?text=Dispositivo%20selecionado:%20iPhone%2017%20Air%20-%20Capacidade:%20256GB%20-%20Entrada:%20R$700%20-%20Parcela:%2016x%20de%20R$610.%20Cor%20a%20consultar%20com%20o%20atendente." class="btn-link">RESERVAR</a></div>
-        <div class="card"><h3>iPhone 17 Pro 256GB</h3><p class="entrada">Entrada R$ 1000</p><span class="parcela">16x R$ 665</span><a href="https://wa.me/558582087849?text=Dispositivo%20selecionado:%20iPhone%2017%20Pro%20-%20Capacidade:%20256GB%20-%20Entrada:%20R$1000%20-%20Parcela:%2016x%20de%20R$665.%20Cor%20a%20consultar%20com%20o%20atendente." class="btn-link">RESERVAR</a></div>
-        <div class="card"><h3>iPhone 17 Pro Max 256GB</h3><p class="entrada">Entrada R$ 1350</p><span class="parcela">16x R$ 715</span><a href="https://wa.me/558582087849?text=Dispositivo%20selecionado:%20iPhone%2017%20Pro%20Max%20-%20Capacidade:%20256GB%20-%20Entrada:%20R$1350%20-%20Parcela:%2016x%20de%20R$715.%20Cor%20a%20consultar%20com%20o%20atendente." class="btn-link">RESERVAR</a></div>
-
-        <div class="card"><h3>Xbox Series X 1TB</h3><p class="entrada">Entrada R$ 300</p><span class="parcela">16x R$ 265</span><a href="https://wa.me/558582087849?text=Dispositivo%20selecionado:%20Xbox%20Series%20X%20-%20Capacidade:%201TB%20-%20Entrada:%20R$300%20-%20Parcela:%2016x%20de%20R$265." class="btn-link">COMPRAR</a></div>
-        <div class="card"><h3>PS5 Slim 1TB</h3><p class="entrada">Entrada R$ 300</p><span class="parcela">16x R$ 265</span><a href="https://wa.me/558582087849?text=Dispositivo%20selecionado:%20PS5%20Slim%20-%20Capacidade:%201TB%20-%20Entrada:%20R$300%20-%20Parcela:%2016x%20de%20R$265." class="btn-link">COMPRAR</a></div>
-    </div>
-
-    <section class="deposits">
-        <h2 class="section-title">Feedback dos Nossos Clientes</h2>
-        <div class="deposits-grid">
-            <div class="dep-card"><div class="stars">★★★★★</div><p>"Meu iPhone chegou em 3 dias certinho em casa. Top demais!"</p><span class="dep-name">Felipe Albuquerque</span></div>
-            <div class="dep-card"><div class="stars">★★★★★</div><p>"A Diamond Connect é muito confiável, o suporte é excelente."</p><span class="dep-name">Juliana Costa</span></div>
-            <div class="dep-card"><div class="stars">★★★★★</div><p>"Chegou lacrado e com garantia. Recomendo a todos."</p><span class="dep-name">Bruno Mendes</span></div>
-            <div class="dep-card"><div class="stars">★★★★★</div><p>"Melhor preço do mercado gamer."</p><span class="dep-name">Ricardo G.</span></div>
-            <div class="dep-card"><div class="stars">★★★★★</div><p>"Tirei todas as dúvidas no WhatsApp."</p><span class="dep-name">Mariana S.</span></div>
-            <div class="dep-card"><div class="stars">★★★★★</div><p>"Aparelho lacrado e original."</p><span class="dep-name">Leonardo F.</span></div>
-            <div class="dep-card"><div class="stars">★★★★★</div><p>"Comprei o PS5 e chegou perfeito."</p><span class="dep-name">Beatriz L.</span></div>
-            <div class="dep-card"><div class="stars">★★★★★</div><p>"Loja de confiança mesmo."</p><span class="dep-name">Tiago M.</span></div>
-            <div class="dep-card"><div class="stars">★★★★★</div><p>"Envio segurado me deu tranquilidade."</p><span class="dep-name">Fernanda O.</span></div>
-            <div class="dep-card"><div class="stars">★★★★★</div><p>"iPhone 16 Pro Max é sensacional."</p><span class="dep-name">Gustavo P.</span></div>
-            <div class="dep-card"><div class="stars">★★★★★</div><p>"Transparência total em tudo."</p><span class="dep-name">Aline R.</span></div>
-            <div class="dep-card"><div class="stars">★★★★★</div><p>"O rastreio é atualizado rápido."</p><span class="dep-name">Rodrigo V.</span></div>
-            <div class="dep-card"><div class="stars">★★★★★</div><p>"Melhor experiência de compra."</p><span class="dep-name">Camila X.</span></div>
-        </div>
-    </section>
-
-    <a href="https://wa.me/558582087849" class="wa-float" target="_blank">
-        
-    </a>
-
-    <footer>
-        Diamond Connect © 2026 | CNPJ: 45.145.228/0001-08 | São Paulo - BR
-    </footer>
-
-</body>
-</html>
