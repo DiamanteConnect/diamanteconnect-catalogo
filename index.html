@@ -192,10 +192,6 @@ nav a:hover{
     font-size:10px;
 }
 
-.hero-checks span::first-letter{
-    color:var(--primary-light);
-}
-
 .hero-visual{
     min-height:410px;
     position:relative;
@@ -250,8 +246,6 @@ nav a:hover{
     bottom:25px;
 }
 
-/* SECTION */
-
 .section{
     padding:75px 7%;
 }
@@ -288,8 +282,6 @@ nav a:hover{
     color:var(--muted);
     font-size:11px;
 }
-
-/* DIFFERENTIALS */
 
 .grid-three{
     max-width:1200px;
@@ -329,8 +321,6 @@ nav a:hover{
     line-height:1.75;
 }
 
-/* TABLE */
-
 .table-container{
     max-width:1150px;
     margin:auto;
@@ -369,8 +359,6 @@ nav a:hover{
     background:rgba(8,121,232,.05);
 }
 
-/* DELIVERY */
-
 .delivery-grid{
     max-width:1200px;
     margin:auto;
@@ -402,8 +390,6 @@ nav a:hover{
     font-size:10px;
     line-height:1.7;
 }
-
-/* CATALOG */
 
 .products{
     max-width:1300px;
@@ -464,8 +450,6 @@ nav a:hover{
     font-weight:800;
 }
 
-/* SIX FEATURES */
-
 .features-six{
     max-width:1250px;
     margin:auto;
@@ -496,8 +480,6 @@ nav a:hover{
     font-size:10px;
     line-height:1.7;
 }
-
-/* ABOUT */
 
 .about{
     max-width:1200px;
@@ -551,8 +533,6 @@ nav a:hover{
     font-size:9px;
 }
 
-/* REVIEWS */
-
 .reviews{
     max-width:1250px;
     margin:auto;
@@ -586,8 +566,6 @@ nav a:hover{
     font-size:10px;
 }
 
-/* SECURITY */
-
 .security-grid{
     max-width:1100px;
     margin:auto;
@@ -619,8 +597,6 @@ nav a:hover{
     font-size:9px;
 }
 
-/* CTA */
-
 .cta{
     padding:80px 20px;
     text-align:center;
@@ -648,8 +624,6 @@ nav a:hover{
     margin-bottom:24px;
 }
 
-/* WHATSAPP */
-
 .whatsapp{
     position:fixed;
     right:22px;
@@ -665,8 +639,6 @@ nav a:hover{
     z-index:1000;
     box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
-
-/* FOOTER */
 
 footer{
     padding:32px 20px;
@@ -685,9 +657,8 @@ footer p{
     margin-top:6px;
 }
 
-/* RESPONSIVO */
-
 @media(max-width:1000px){
+
     .products{
         grid-template-columns:repeat(3,1fr);
     }
@@ -712,6 +683,7 @@ footer p{
 }
 
 @media(max-width:800px){
+
     header{
         flex-direction:column;
         gap:10px;
@@ -737,6 +709,7 @@ footer p{
 }
 
 @media(max-width:600px){
+
     .section{
         padding:55px 5%;
     }
@@ -767,10 +740,6 @@ footer p{
         gap:14px;
     }
 
-    .stats{
-        grid-template-columns:1fr 1fr;
-    }
-
     .hero h1{
         font-size:39px;
     }
@@ -779,15 +748,20 @@ footer p{
         font-size:8px;
     }
 }
+
 </style>
 </head>
 
 <body>
 
 <header>
+
     <div class="logo-area">
         <img src="logo.webp" class="logo" alt="Diamond Connect">
-        <div class="logo-name">Diamond <span>Connect</span></div>
+
+        <div class="logo-name">
+            Diamond <span>Connect</span>
+        </div>
     </div>
 
     <nav>
@@ -795,15 +769,22 @@ footer p{
         <a href="#tabela">Tabela</a>
         <a href="#catalogo">Catálogo</a>
         <a href="#sobre">Sobre</a>
-        <a class="nav-button" href="https://wa.me/558582087849" target="_blank">WhatsApp</a>
+        <a class="nav-button"
+           href="https://wa.me/558582087849"
+           target="_blank">
+           WhatsApp
+        </a>
     </nav>
+
 </header>
 
 <section class="hero">
 
     <div class="hero-content">
 
-        <div class="badge">💎 DIAMOND CONNECT • OFICIAL</div>
+        <div class="badge">
+            💎 DIAMOND CONNECT • OFICIAL
+        </div>
 
         <h1>
             Seu próximo dispositivo
@@ -816,13 +797,18 @@ footer p{
         </p>
 
         <div class="hero-buttons">
-            <a href="#catalogo" class="primary-button">Ver catálogo</a>
+
+            <a href="#catalogo"
+               class="primary-button">
+               Ver catálogo
+            </a>
 
             <a href="https://wa.me/558582087849"
                target="_blank"
                class="secondary-button">
                Falar no WhatsApp
             </a>
+
         </div>
 
         <div class="hero-checks">
@@ -855,7 +841,9 @@ footer p{
 
     <div class="section-title">
         <small>Diamond Connect</small>
+
         <h2>Diferenciais da nossa loja</h2>
+
         <p>
             Tudo pensado para tornar sua experiência simples,
             segura e transparente.
@@ -866,7 +854,9 @@ footer p{
 
         <div class="info-card">
             <div class="info-icon">💳</div>
+
             <h3>Parcelamento facilitado</h3>
+
             <p>
                 Consulte nossas condições de entrada e parcelamento
                 diretamente com nossa equipe.
@@ -875,7 +865,9 @@ footer p{
 
         <div class="info-card">
             <div class="info-icon">🛡️</div>
+
             <h3>Garantia Real</h3>
+
             <p>
                 Mais tranquilidade para você adquirir seu dispositivo
                 com segurança.
@@ -884,7 +876,9 @@ footer p{
 
         <div class="info-card">
             <div class="info-icon">📦</div>
+
             <h3>Envio Seguro</h3>
+
             <p>
                 Seus pedidos são enviados com rastreamento para
                 acompanhamento da entrega.
@@ -898,9 +892,15 @@ footer p{
 <section class="section section-dark" id="tabela">
 
     <div class="section-title">
+
         <small>Preços</small>
+
         <h2>Tabela de Preços Oficial</h2>
-        <p>Confira nossas condições de pagamento.</p>
+
+        <p>
+            Confira nossas condições de pagamento.
+        </p>
+
     </div>
 
     <div class="table-container">
@@ -908,39 +908,121 @@ footer p{
         <table class="price-table">
 
             <thead>
+
                 <tr>
                     <th>Dispositivo</th>
                     <th>Entrada</th>
                     <th>Parcelas (16x)</th>
                 </tr>
+
             </thead>
 
             <tbody>
 
-                <tr><td>iPhone 14 256GB</td><td>R$ 250</td><td>R$ 210</td></tr>
-                <tr><td>iPhone 14 Pro 256GB</td><td>R$ 375</td><td>R$ 250</td></tr>
-                <tr><td>iPhone 14 Pro Max 256GB</td><td>R$ 400</td><td>R$ 280</td></tr>
-                <tr><td>iPhone 15 256GB</td><td>R$ 250</td><td>R$ 260</td></tr>
-                <tr><td>iPhone 15 Plus 256GB</td><td>R$ 300</td><td>R$ 290</td></tr>
-                <tr><td>iPhone 15 Pro 256GB</td><td>R$ 400</td><td>R$ 380</td></tr>
-                <tr><td>iPhone 15 Pro Max 256GB</td><td>R$ 500</td><td>R$ 420</td></tr>
-                <tr><td>iPhone 16 256GB</td><td>R$ 500</td><td>R$ 320</td></tr>
-                <tr><td>iPhone 16 Pro 256GB</td><td>R$ 800</td><td>R$ 470</td></tr>
-                <tr><td>iPhone 16 Pro Max 256GB</td><td>R$ 1000</td><td>R$ 550</td></tr>
-                <tr><td>iPhone 17 Normal 256GB</td><td>R$ 500</td><td>R$ 465</td></tr>
-                <tr><td>iPhone 17 Air 256GB</td><td>R$ 700</td><td>R$ 610</td></tr>
-                <tr><td>iPhone 17 Pro 256GB</td><td>R$ 1000</td><td>R$ 665</td></tr>
-                <tr><td>iPhone 17 Pro Max 256GB</td><td>R$ 1350</td><td>R$ 715</td></tr>
-                <tr><td>Xbox Series X 1TB</td><td>R$ 300</td><td>R$ 265</td></tr>
-                <tr><td>PS5 Slim 1TB</td><td>R$ 300</td><td>R$ 265</td></tr>
+                <tr>
+                    <td>iPhone 14 256GB</td>
+                    <td>R$ 250</td>
+                    <td>R$ 210</td>
+                </tr>
 
-            </tbody>
+                <tr>
+                    <td>iPhone 14 Pro 256GB</td>
+                    <td>R$ 375</td>
+                    <td>R$ 250</td>
+                </tr>
 
-        </table>
+                <tr>
+                    <td>iPhone 14 Pro Max 256GB</td>
+                    <td>R$ 400</td>
+                    <td>R$ 280</td>
+                </tr>
 
-    </div>
+                <tr>
+                    <td>iPhone 15 256GB</td>
+                    <td>R$ 250</td>
+                    <td>R$ 260</td>
+                </tr>
+
+                <tr>
+                    <td>iPhone 15 Plus 256GB</td>
+                    <td>R$ 300</td>
+                    <td>R$ 290</td>
+                </tr>
+
+                <tr>
+                    <td>iPhone 15 Pro 256GB</td>
+                    <td>R$ 400</td>
+                    <td>R$ 380</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        iPhone 15 Pro Max 256GB
+    </td>
+    <td>R$ 500</td>
+    <td>R$ 420</td>
+</tr>
+
+<tr>
+    <td>iPhone 16 256GB</td>
+    <td>R$ 500</td>
+    <td>R$ 320</td>
+</tr>
+
+<tr>
+    <td>iPhone 16 Pro 256GB</td>
+    <td>R$ 800</td>
+    <td>R$ 470</td>
+</tr>
+
+<tr>
+    <td>iPhone 16 Pro Max 256GB</td>
+    <td>R$ 1000</td>
+    <td>R$ 550</td>
+</tr>
+
+<tr>
+    <td>iPhone 17 Normal 256GB</td>
+    <td>R$ 500</td>
+    <td>R$ 465</td>
+</tr>
+
+<tr>
+    <td>iPhone 17 Air 256GB</td>
+    <td>R$ 700</td>
+    <td>R$ 610</td>
+</tr>
+
+<tr>
+    <td>iPhone 17 Pro 256GB</td>
+    <td>R$ 1000</td>
+    <td>R$ 665</td>
+</tr>
+
+<tr>
+    <td>iPhone 17 Pro Max 256GB</td>
+    <td>R$ 1350</td>
+    <td>R$ 715</td>
+</tr>
+
+<tr>
+    <td>Xbox Series X 1TB</td>
+    <td>R$ 300</td>
+    <td>R$ 265</td>
+</tr>
+
+<tr>
+    <td>PS5 Slim 1TB</td>
+    <td>R$ 300</td>
+    <td>R$ 265</td>
+</tr>
+
+</tbody>
+</table>
+</div>
 
 </section>
+
 
 <section class="section">
 
@@ -976,6 +1058,7 @@ footer p{
     </div>
 
 </section>
+
 
 <section class="section section-dark" id="catalogo">
 
@@ -1019,178 +1102,137 @@ footer p{
             <span class="entry">Entrada R$ 250</span>
             <strong class="installment">16x R$ 260</strong>
             <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2015%20256GB." target="_blank">RESERVAR</a>
-</div>
+        </div>
 
-<div class="product-card">
-    <span class="product-type">iPhone</span>
-    <h3>iPhone 15 Plus 256GB</h3>
-    <span class="entry">Entrada R$ 300</span>
-    <strong class="installment">16x R$ 290</strong>
-    <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2015%20Plus%20256GB." target="_blank">RESERVAR</a>
-</div>
+        <div class="product-card">
+            <span class="product-type">iPhone</span>
+            <h3>iPhone 15 Plus 256GB</h3>
+            <span class="entry">Entrada R$ 300</span>
+            <strong class="installment">16x R$ 290</strong>
+            <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2015%20Plus%20256GB." target="_blank">RESERVAR</a>
+        </div>
 
-<div class="product-card">
-    <span class="product-type">iPhone</span>
-    <h3>iPhone 15 Pro 256GB</h3>
-    <span class="entry">Entrada R$ 400</span>
-    <strong class="installment">16x R$ 380</strong>
-    <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2015%20Pro%20256GB." target="_blank">RESERVAR</a>
-</div>
+        <div class="product-card">
+            <span class="product-type">iPhone</span>
+            <h3>iPhone 15 Pro 256GB</h3>
+            <span class="entry">Entrada R$ 400</span>
+            <strong class="installment">16x R$ 380</strong>
+            <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2015%20Pro%20256GB." target="_blank">RESERVAR</a>
+        </div>
 
-<div class="product-card">
-    <span class="product-type">iPhone</span>
-    <h3>iPhone 15 Pro Max 256GB</h3>
-    <span class="entry">Entrada R$ 500</span>
-    <strong class="installment">16x R$ 420</strong>
-    <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2015%20Pro%20Max%20256GB." target="_blank">RESERVAR</a>
-</div>
+        <div class="product-card">
+            <span class="product-type">iPhone</span>
+            <h3>iPhone 15 Pro Max 256GB</h3>
+            <span class="entry">Entrada R$ 500</span>
+            <strong class="installment">16x R$ 420</strong>
+            <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2015%20Pro%20Max%20256GB." target="_blank">RESERVAR</a>
+        </div>
 
-<div class="product-card">
-    <span class="product-type">iPhone</span>
-    <h3>iPhone 16 256GB</h3>
-    <span class="entry">Entrada R$ 500</span>
-    <strong class="installment">16x R$ 320</strong>
-    <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2016%20256GB." target="_blank">RESERVAR</a>
-</div>
+        <div class="product-card">
+            <span class="product-type">iPhone</span>
+            <h3>iPhone 16 256GB</h3>
+            <span class="entry">Entrada R$ 500</span>
+            <strong class="installment">16x R$ 320</strong>
+            <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2016%20256GB." target="_blank">RESERVAR</a>
+        </div>
 
-<div class="product-card">
-    <span class="product-type">iPhone</span>
-    <h3>iPhone 16 Pro 256GB</h3>
-    <span class="entry">Entrada R$ 800</span>
-    <strong class="installment">16x R$ 470</strong>
-    <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2016%20Pro%20256GB." target="_blank">RESERVAR</a>
-</div>
+        <div class="product-card">
+            <span class="product-type">iPhone</span>
+            <h3>iPhone 16 Pro 256GB</h3>
+            <span class="entry">Entrada R$ 800</span>
+            <strong class="installment">16x R$ 470</strong>
+            <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2016%20Pro%20256GB." target="_blank">RESERVAR</a>
+        </div>
 
-<div class="product-card">
-    <span class="product-type">iPhone</span>
-    <h3>iPhone 16 Pro Max 256GB</h3>
-    <span class="entry">Entrada R$ 1000</span>
-    <strong class="installment">16x R$ 550</strong>
-    <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2016%20Pro%20Max%20256GB." target="_blank">RESERVAR</a>
-</div>
+        <div class="product-card">
+            <span class="product-type">iPhone</span>
+            <h3>iPhone 16 Pro Max 256GB</h3>
+            <span class="entry">Entrada R$ 1000</span>
+            <strong class="installment">16x R$ 550</strong>
+            <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2016%20Pro%20Max%20256GB." target="_blank">RESERVAR</a>
+        </div>
 
-<div class="product-card">
-    <span class="product-type">Novo</span>
-    <h3>iPhone 17 Normal 256GB</h3>
-    <span class="entry">Entrada R$ 500</span>
-    <strong class="installment">16x R$ 465</strong>
-    <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2017%20Normal%20256GB." target="_blank">RESERVAR</a>
-</div>
+        <div class="product-card">
+            <span class="product-type">iPhone</span>
+            <h3>iPhone 17 Normal 256GB</h3>
+            <span class="entry">Entrada R$ 500</span>
+            <strong class="installment">16x R$ 465</strong>
+            <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2017%20Normal%20256GB." target="_blank">RESERVAR</a>
+        </div>
 
-<div class="product-card">
-    <span class="product-type">Novo</span>
-    <h3>iPhone 17 Air 256GB</h3>
-    <span class="entry">Entrada R$ 700</span>
-    <strong class="installment">16x R$ 610</strong>
-    <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2017%20Air%20256GB." target="_blank">RESERVAR</a>
-</div>
+        <div class="product-card">
+            <span class="product-type">iPhone</span>
+            <h3>iPhone 17 Air 256GB</h3>
+            <span class="entry">Entrada R$ 700</span>
+            <strong class="installment">16x R$ 610</strong>
+            <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2017%20Air%20256GB." target="_blank">RESERVAR</a>
+        </div>
 
-<div class="product-card">
-    <span class="product-type">Novo</span>
-    <h3>iPhone 17 Pro 256GB</h3>
-    <span class="entry">Entrada R$ 1000</span>
-    <strong class="installment">16x R$ 665</strong>
-    <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2017%20Pro%20256GB." target="_blank">RESERVAR</a>
-</div>
+        <div class="product-card">
+            <span class="product-type">iPhone</span>
+            <h3>iPhone 17 Pro 256GB</h3>
+            <span class="entry">Entrada R$ 1000</span>
+            <strong class="installment">16x R$ 665</strong>
+            <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2017%20Pro%20256GB." target="_blank">RESERVAR</a>
+        </div>
 
-<div class="product-card">
-    <span class="product-type">Novo</span>
-    <h3>iPhone 17 Pro Max 256GB</h3>
-    <span class="entry">Entrada R$ 1350</span>
-    <strong class="installment">16x R$ 715</strong>
-    <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2017%20Pro%20Max%20256GB." target="_blank">RESERVAR</a>
-</div>
+        <div class="product-card">
+            <span class="product-type">iPhone</span>
+            <h3>iPhone 17 Pro Max 256GB</h3>
+            <span class="entry">Entrada R$ 1350</span>
+            <strong class="installment">16x R$ 715</strong>
+            <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20iPhone%2017%20Pro%20Max%20256GB." target="_blank">RESERVAR</a>
+        </div>
 
-<div class="product-card">
-    <span class="product-type">Console</span>
-    <h3>Xbox Series X 1TB</h3>
-    <span class="entry">Entrada R$ 300</span>
-    <strong class="installment">16x R$ 265</strong>
-    <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20comprar%20o%20Xbox%20Series%20X%201TB." target="_blank">COMPRAR</a>
-</div>
+        <div class="product-card">
+            <span class="product-type">Xbox</span>
+            <h3>Xbox Series X 1TB</h3>
+            <span class="entry">Entrada R$ 300</span>
+            <strong class="installment">16x R$ 265</strong>
+            <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20Xbox%20Series%20X%201TB." target="_blank">COMPRAR</a>
+        </div>
 
-<div class="product-card">
-    <span class="product-type">Console</span>
-    <h3>PS5 Slim 1TB</h3>
-    <span class="entry">Entrada R$ 300</span>
-    <strong class="installment">16x R$ 265</strong>
-    <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20comprar%20o%20PS5%20Slim%201TB." target="_blank">COMPRAR</a>
-</div>
+        <div class="product-card">
+            <span class="product-type">PlayStation</span>
+            <h3>PS5 Slim 1TB</h3>
+            <span class="entry">Entrada R$ 300</span>
+            <strong class="installment">16x R$ 265</strong>
+            <a class="buy-button" href="https://wa.me/558582087849?text=Quero%20reservar%20o%20PS5%20Slim%201TB." target="_blank">COMPRAR</a>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
-<section class="section">
+
+<section class="section" id="sobre">
 
     <div class="section-title">
-        <small>Experiência</small>
-        <h2>Por que escolher a Diamond Connect?</h2>
+        <small>Quem somos</small>
+        <h2>Sobre a Diamond Connect</h2>
+        <p>
+            Tecnologia, atendimento e segurança em um só lugar.
+        </p>
     </div>
-
-    <div class="features-six">
-
-        <div class="feature">
-            <div class="feature-icon">🛡️</div>
-            <h3>Garantia Real</h3>
-            <p>Mais segurança e tranquilidade na compra do seu dispositivo.</p>
-        </div>
-
-        <div class="feature">
-            <div class="feature-icon">🔧</div>
-            <h3>Suporte Especializado</h3>
-            <p>Nossa equipe está disponível para ajudar antes e depois da compra.</p>
-        </div>
-
-        <div class="feature">
-            <div class="feature-icon">💳</div>
-            <h3>Facilidade de Pagamento</h3>
-            <p>Condições facilitadas para você adquirir seu dispositivo.</p>
-        </div>
-
-        <div class="feature">
-            <div class="feature-icon">📱</div>
-            <h3>Dispositivos Premium</h3>
-            <p>Smartphones e consoles selecionados para nossos clientes.</p>
-        </div>
-
-        <div class="feature">
-            <div class="feature-icon">⚡</div>
-            <h3>Atendimento Rápido</h3>
-            <p>Atendimento direto e rápido através do WhatsApp.</p>
-        </div>
-
-        <div class="feature">
-            <div class="feature-icon">📦</div>
-            <h3>Envio Seguro</h3>
-            <p>Pedidos enviados com rastreamento para acompanhamento.</p>
-        </div>
-
-    </div>
-
-</section>
-
-<section class="section section-dark" id="sobre">
 
     <div class="about">
 
         <div class="about-text">
 
-            <div class="section-title" style="text-align:left;margin-bottom:20px">
-                <small>Sobre nós</small>
-                <h2>Quem é a <span>Diamond Connect?</span></h2>
-            </div>
+            <h2>
+                Tecnologia que combina
+                <span>confiança e praticidade.</span>
+            </h2>
 
             <p>
-                A Diamond Connect nasceu com o objetivo de oferecer
-                produtos de tecnologia com condições acessíveis,
-                atendimento próximo e uma experiência de compra segura.
+                A Diamond Connect trabalha com smartphones, consoles
+                e produtos de tecnologia, oferecendo condições facilitadas
+                e atendimento direto pelo WhatsApp.
             </p>
 
             <p>
-                Trabalhamos com smartphones, consoles e acessórios,
-                buscando sempre oferecer transparência e suporte
-                durante todo o processo.
+                Nosso objetivo é tornar sua compra mais simples,
+                transparente e segura.
             </p>
 
         </div>
@@ -1199,7 +1241,7 @@ footer p{
 
             <div class="stat">
                 <strong>100%</strong>
-                <span>Produtos originais</span>
+                <span>Atendimento online</span>
             </div>
 
             <div class="stat">
@@ -1208,13 +1250,13 @@ footer p{
             </div>
 
             <div class="stat">
-                <strong>3–4</strong>
-                <span>Dias úteis</span>
+                <strong>3-4</strong>
+                <span>Dias úteis após postagem</span>
             </div>
 
             <div class="stat">
-                <strong>5★</strong>
-                <span>Atendimento</span>
+                <strong>Brasil</strong>
+                <span>Envios nacionais</span>
             </div>
 
         </div>
@@ -1223,10 +1265,11 @@ footer p{
 
 </section>
 
-<section class="section">
+
+<section class="section section-dark">
 
     <div class="section-title">
-        <small>Clientes</small>
+        <small>Experiências</small>
         <h2>Feedback dos nossos clientes</h2>
     </div>
 
@@ -1268,71 +1311,104 @@ footer p{
             <b>Leonardo F.</b>
         </div>
 
+        <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>"Comprei o PS5 e chegou perfeito."</p>
+            <b>Beatriz L.</b>
+        </div>
+
+        <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>"Loja de confiança mesmo."</p>
+            <b>Tiago M.</b>
+        </div>
+
+        <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>"Envio segurado me deu tranquilidade."</p>
+            <b>Fernanda O.</b>
+        </div>
+
     </div>
 
 </section>
 
-<section class="section section-dark">
+
+<section class="section">
+
+    <div class="section-title">
+        <small>Segurança</small>
+        <h2>Compre com tranquilidade</h2>
+    </div>
 
     <div class="security-grid">
 
         <div class="security-card">
             <div class="icon">🔒</div>
-            <strong>Site seguro</strong>
-            <span>Navegação protegida por HTTPS.</span>
+            <strong>Compra segura</strong>
+            <span>Atendimento direto e transparente.</span>
         </div>
 
         <div class="security-card">
-            <div class="icon">🛡️</div>
-            <strong>Compra protegida</strong>
-            <span>Atendimento e acompanhamento do pedido.</span>
+            <div class="icon">📦</div>
+            <strong>Envio rastreado</strong>
+            <span>Acompanhe seu pedido durante a entrega.</span>
         </div>
 
         <div class="security-card">
-            <div class="icon">✓</div>
-            <strong>Produtos originais</strong>
-            <span>Produtos com procedência e garantia.</span>
+            <div class="icon">💬</div>
+            <strong>Suporte WhatsApp</strong>
+            <span>Fale com nossa equipe durante sua compra.</span>
         </div>
 
     </div>
 
 </section>
 
+
 <section class="cta">
 
     <div class="cta-box">
 
-        <h2>Encontrou seu próximo dispositivo?</h2>
+        h2>Encontrou seu dispositivo?</h2>
 
         <p>
-            Fale agora com a Diamond Connect pelo WhatsApp
-            e consulte a disponibilidade.
+            Fale agora com a Diamond Connect e consulte
+            disponibilidade e condições.
         </p>
 
-        <a
-            class="primary-button"
-            href="https://wa.me/558582087849"
-            target="_blank">
-            Falar com a Diamond Connect
+        <a href="https://wa.me/558582087849"
+           target="_blank"
+           class="primary-button">
+           Falar com a Diamond Connect
         </a>
 
     </div>
 
 </section>
 
-<a
-    class="whatsapp"
-    href="https://wa.me/558582087849"
-    target="_blank">
-    💬
+
+<a href="https://wa.me/558582087849"
+   target="_blank"
+   class="whatsapp">
+   💬
 </a>
+
 
 <footer>
 
-    <strong>Diamond Connect © 2026</strong>
+    <strong>Diamond Connect</strong>
 
     <p>
-        CNPJ: 45.145.228/0001-08 | São Paulo - BR
+        Tecnologia e smartphones • São Paulo - BR
+    </p>
+
+    <p>
+        CNPJ: 45.145.228/0001-08
+    </p>
+
+    <p>
+        © 2026 Diamond Connect. Todos os direitos reservados.
     </p>
 
 </footer>
